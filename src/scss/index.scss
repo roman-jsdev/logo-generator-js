@@ -1,0 +1,11 @@
+@import "~normalize.css";
+@import "variables";
+:root{
+  --color-black: blue;
+}
+body {
+  height: $header-height;
+  background-color: var(--color-black);
+  display: flex;
+  gap: 10px;
+}
