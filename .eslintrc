@@ -1,0 +1,28 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "rules": {
+    "semi": "off",
+    "arrow-parens": "off",
+    "linebreak-style": "off",
+    "object-curly-spacing": "off",
+    "require-jsdoc": "off",
+    "operator-linebreak": "off",
+    "no-debugger": "off",
+    "indent": "off",
+    "comma-dangle": "off",
+    "space-before-function-paren": "off"
+  },
+  "plugins": [
+    "jest"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "google"
+  ]
+}
