@@ -1,0 +1,58 @@
+@import "variables";
+@import "mixins";
+
+:root {
+  --main-button_color: #{$main-button_color};
+  --main-button_background-color: #{$main-button_background-color};
+  --main-button_background-color: #{$main-button_background-color};
+  --main-button_background-color_hover: #{$main-button_background-color_hover};
+  --main-button_font-size: #{$main-button_font-size};
+}
+
+.main-button-wrapper {
+  @include flex(center, null, null, null);
+  height: 50px;
+
+  .main-button {
+    @include card_hover;
+    font-size: var(--main-button_font-size);
+    color: var(--main-button_color);
+    background-color: var(--main-button_background-color);
+    padding: 1rem;
+    border: none;
+    border-radius: var(--basic_border-radius);
+    transition: var(--basic_transition);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: var(--main-button_background-color_hover);
+    }
+
+    &:nth-of-type(2) {
+      margin-left: var(--basic_margin-bottom);
+    }
+  }
+}
+
+@include media("<phone") {
+  .main-button-wrapper {
+    width: 85%;
+
+    .main-button {
+      width: 100%;
+    }
+  }
+}
+
+@include media("<=sm-phone") {
+  .main-button-wrapper {
+    .main-button {
+      &:nth-of-type(2) {
+        margin-left: 10px;
+      }
+    }
+  }
+}

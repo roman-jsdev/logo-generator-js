@@ -1,0 +1,104 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+$height: 46px;
+$border: 1px solid var(--basic__input_border-color);
+$title_font-weight: 500;
+
+:root {
+  --select_height: #{$height};
+  --select_border: #{$border};
+  --select-title_font-weight: #{$title_font-weight}
+}
+
+.select-title {
+  font-size: var(--basic__cards__description_font-size);
+  color: var(--secondary_font-color);
+  margin-bottom: var(--basic_margin-bottom);
+  font-weight: var(--select-title_font-weight);
+}
+
+.select-wrapper {
+  @include flex(center, center, null, null);
+  width: 100%;
+  margin-bottom: var(--basic_margin-bottom);
+
+  .select {
+    @include position(relative, 100, null, null, null, null);
+    flex: 0 1 450px;
+    background-color: var(--basic__cards_background-color);
+    color: var(--basic_font-color);
+
+    &.open {
+      .select__dropdown, .select__backdrop {
+        display: block;
+      }
+
+      .select__input {
+        border-bottom: none;
+      }
+    }
+
+    &__input {
+      @include flex(space-between, center, null, null);
+      @include card_hover;
+      height: var(--select_height);
+      padding: 0 1rem;
+      border: var(--select_border);
+      border-radius: var(--basic_border-radius);
+
+      & span,
+      i {
+        pointer-events: none;
+      }
+    }
+    &__dropdown {
+      @include position(absolute, null, $height, 0, null, 0);
+      display: none;
+      background-color: var(--basic__cards_background-color);
+      border: var(--select_border);
+      border-radius: var(--basic_border-radius);
+      max-height: 200px;
+      overflow-y: auto;
+      box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+
+      &::-webkit-scrollbar {
+        width: 18px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: rgb(223, 223, 223);
+        border-radius: 20px;
+        border: 6px solid transparent;
+        background-clip: content-box;
+      }
+    }
+
+    &__backdrop {
+      @include position(fixed, -1, 0, 0, 0, 0);
+      display: none;
+      background: transparent;
+    }
+
+    &__item {
+      @include card_hover;
+      padding: 1rem;
+      border-bottom: var(--select_border);
+      transition: var(--basic_transition);
+      &.selected {
+        background-color: var(--basic__cards_background-color_hover);
+      }
+      &:hover {
+        background-color: var(--basic__cards_background-color_hover);
+      }
+    }
+  }
+}
+
+@include media("<=phone") {
+  .select-wrapper .select {
+    margin: 0 25px;
+  }
+}

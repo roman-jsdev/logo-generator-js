@@ -1,0 +1,24 @@
+@import "variables";
+@import "mixins";
+
+$logo__title_bright: #ffffff;
+$logo__title_dark: #000000;
+
+:root {
+  --logo__title_bright: #{$logo__title_bright};
+  --logo__title_dark: #{$logo__title_dark};
+}
+
+.input_danger {
+  border: 1px solid var(--basic_color_danger) !important;
+}
+.input_danger::placeholder {
+  color: var(--basic_color_danger);
+}
+.padding-top_no {
+  padding-top: 0 !important;
+}
+
+.height_100 {
+  height: 100% !important;
+}

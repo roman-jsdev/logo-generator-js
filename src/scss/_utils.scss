@@ -1,0 +1,24 @@
+@import "variables";
+
+@each $font, $weight in $fonts {
+  @if $weight {
+    [data-font="#{$font} #{$weight}"] .font-card__title {
+      font-family: $font;
+      font-weight: $weight;
+    }
+  } @else {
+    [data-font="#{$font}"] .font-card__title {
+      font-family: $font;
+    }
+  }
+}
+
+@each $color in $colors {
+  @for $i from 1 through 4 {
+    [data-color="#{$color}"]
+      .color-card__colors-wrapper__color-element:nth-child(#{$i}) {
+      background-color: $color;
+      opacity: calc(1 - #{$i}/ 7);
+    }
+  }
+}

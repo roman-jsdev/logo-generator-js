@@ -1,1 +1,52 @@
 @import "~normalize.css";
+@import url("https://fonts.googleapis.com/css2?family=Alegreya&family=Arvo:wght@700&family=Bitter:wght@300;500;700&family=Courgette&family=Crimson+Text&family=Domine&family=Fjalla+One&family=Fondamento&family=IBM+Plex+Mono:wght@500&family=Merienda+One&family=Noto+Serif&family=Open+Sans&family=Overpass+Mono:wght@300&family=Patrick+Hand&family=Patua+One&family=Sacramento&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css");
+@import "utils";
+@import "common";
+@import "header";
+@import "main-button";
+@import "app";
+@import "name-input";
+@import "font-cards";
+@import "color-cards";
+@import "icons";
+@import "control-panel";
+@import "logos";
+@import "../plugins/select/select";
+
+:root {
+  --mobile__cards__description_font-size: #{$mobile__cards__description_font-size};
+  --mobile__control-panel_height: #{$mobile__control-panel_height};
+  --mobile__cards__title_font-size: #{$mobile__cards__title_font-size};
+  --mobile__header__title_font-size: #{$mobile__header__title_font-size};
+  --mobile__header__description_font-size: #{$mobile__header__description_font-size};
+}
+
+:root {
+  --secondary_font-color: #{$secondary_font-color};
+}
+
+:root {
+  --body_background-color: #{$body_background-color};
+  --basic_margin-bottom: #{$basic_margin-bottom};
+  --basic_font-color: #{$basic_font-color};
+  --basic_color_danger: #{$basic_color_danger};
+  --basic_border-radius: #{$basic_border-radius};
+  --basic_transition: #{$basic_transition};
+  --basic__cards_background-color: #{$basic__cards_background-color};
+  --basic__cards_background-color_hover: #{$basic__cards_background-color_hover};
+  --basic__cards__title_font-size: #{$basic__cards__title_font-size};
+  --basic__cards__description_font-size: #{$basic__cards__description_font-size};
+  --basic__input_border-color: #{$basic__input_border-color};
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--body_background-color);
+}
