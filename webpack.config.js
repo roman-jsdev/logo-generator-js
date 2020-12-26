@@ -6,7 +6,6 @@ const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const { web } = require('webpack')
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = !isProd
@@ -83,6 +82,9 @@ module.exports = {
       filename: filename('css'),
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
   ],
   module: {
     rules: [

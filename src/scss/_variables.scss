@@ -1,0 +1,80 @@
+@import "./plugins/include-meida";
+
+$body_background-color: #f7f7f7;
+
+$basic_margin-bottom: 25px;
+$basic_font-color: #2e2e2e;
+$basic_color_danger: #e0280f;
+$basic_border-radius: 5px;
+$basic_transition: all 0.3s;
+$basic__cards_background-color_hover: #eeeeee;
+$basic__cards_background-color: #ffffff;
+$basic__cards__title_font-size: 48px;
+$basic__cards__description_font-size: 16px;
+$basic__input_border-color: #d8d8d8;
+
+$secondary_font-color: #4e4e4e;
+
+$mobile__cards__description_font-size: 14px;
+$mobile__control-panel_height: 110px;
+$mobile__cards__title_font-size: 36px;
+$mobile__header__title_font-size: 32px;
+$mobile__header__description_font-size: 18px;
+
+$header__title_font-size: 48px;
+$header__title_font-weight: 600;
+$header__description_font-size: 22px;
+
+$main-button_font-size: 18px;
+$main-button_color: #ffffff;
+$main-button_background-color: #e0280f;
+$main-button_background-color_hover: #c8240d;
+
+$control-panel_height: 75px;
+
+$logo-card_background-color: #4e4e4e;
+$logo-card_box-shadow_hover: -2px 2px 5px 1px #b3b3b3;
+$logo-card__buttons_border-radius: 30px;
+$logo-card__buttons_padding: 10px;
+
+$fonts: (
+  Alegreya: null,
+  Arvo: 700,
+  Bitter: 300,
+  Courgette: null,
+  Crimson Text: null,
+  Domine: null,
+  Fjalla One: null,
+  Fondamento: null,
+  IBM Plex Mono: 500,
+  Merienda One: null,
+  Noto Serif: null,
+  Open Sans: null,
+  Overpass Mono: 300,
+  Patrick Hand: null,
+  Patua One: null,
+  Sacramento: null,
+);
+
+$colors: (
+  #e70d0d,
+  #cd853f,
+  #7b68ee,
+  #ffd700,
+  #7fff00,
+  #ffb6c1,
+  #40e0d0,
+  #a9a9a9,
+  #0000cd,
+  #9400d3,
+  #ff1493,
+  #ffa07a
+);
+
+$breakpoints: (
+  "sm-phone": 320px,
+  "phone": 568px,
+  "sm-tablet": 768px,
+  "tablet": 992px,
+  "desktop": 1024px,
+);

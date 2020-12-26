@@ -1,0 +1,35 @@
+@import "variables";
+@import "mixins";
+
+.color-cards-wrapper {
+  @include flex(center, center, null, wrap);
+
+  .color-card {
+    background-color: var(--basic__cards_background-color);
+    margin-bottom: var(--basic_margin-bottom);
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: var(--basic_border-radius);
+    flex: 0 0 15%;
+    transition: var(--basic_transition);
+    @include card_hover;
+
+    &__colors-wrapper {
+      margin-bottom: var(--basic_margin-bottom);
+
+      &__color-element {
+        height: 25px;
+      }
+    }
+
+    &__description {
+      color: var(--secondary_font-color);
+      font-size: var(--basic__cards__description_font-size);
+    }
+
+    &:hover {
+      background-color: var(--basic__cards_background-color_hover);
+    }
+  }
+}

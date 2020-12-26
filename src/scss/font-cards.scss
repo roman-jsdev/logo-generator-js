@@ -1,0 +1,72 @@
+@import "variables";
+@import "mixins";
+
+.font-cards-wrapper {
+  @include flex(center, null, null, null);
+  text-align: center;
+  width: 100%;
+
+  .font-card {
+    @include flex(center, center, column, null);
+    margin-right: 30px;
+    padding: 2rem;
+    flex: 0 0 350px;
+    height: 350px;
+    background-color: var(--basic__cards_background-color);
+    border-radius: var(--basic_border-radius);
+    transition: var(--basic_transition);
+    @include card_hover;
+
+    &:nth-of-type(3) {
+      margin: 0;
+    }
+
+    &__title {
+      color: var(--basic_font-color);
+      font-size: var(--basic__cards__title_font-size);
+      margin-bottom: calc(var(--basic_margin-bottom) * 2);
+    }
+
+    &__description {
+      color: var(--secondary_font-color);
+      font-size: var(--basic__cards__description_font-size);
+    }
+
+    &:hover {
+      background-color: var(--basic__cards_background-color_hover);
+    }
+  }
+}
+
+@include media(">tablet", "<=1350px") {
+  .font-cards-wrapper {
+    .font-card {
+      flex: 0 0 250px;
+      height: 250px;
+
+      &__title {
+        margin-bottom: 20px;
+      }
+
+      &__description {
+        font-size: var(--mobile__cards__description_font-size);
+      }
+    }
+  }
+}
+
+@include media("<tablet") {
+  .font-cards-wrapper {
+    flex-direction: column;
+
+    & > .font-card {
+      margin: 25px !important;
+    }
+
+    .font-card {
+      &__description {
+        font-size: var(--mobile__cards__description_font-size);
+      }
+    }
+  }
+}

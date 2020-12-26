@@ -1,5 +1,5 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "env": {
     "es6": true,
     "browser": true,
@@ -16,7 +16,8 @@
     "no-debugger": "off",
     "indent": "off",
     "comma-dangle": "off",
-    "space-before-function-paren": "off"
+    "space-before-function-paren": "off",
+    "no-invalid-this": "off",
   },
   "plugins": [
     "jest"

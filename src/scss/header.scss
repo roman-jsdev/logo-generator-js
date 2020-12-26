@@ -1,0 +1,40 @@
+@import "variables";
+@import "mixins";
+
+:root {
+  --header__title_font-size: #{$header__title_font-size};
+  --header__title_font-weight: #{$header__title_font-weight};
+  --header__description_font-size: #{$header__description_font-size};
+}
+
+.header {
+  @include flex(center, center, column, null);
+  width: 100%;
+  padding: 2.5rem 2.5rem 0 2.5rem;
+  margin-bottom: var(--basic_margin-bottom);
+  text-align: center;
+
+  &__title {
+    font-size: var(--header__title_font-size);
+    font-weight: var(--header__title_font-weight);
+    margin-bottom: var(--basic_margin-bottom);
+    color: var(--basic_font-color);
+  }
+
+  &__description {
+    font-size: var(--header__description_font-size);
+    color: var(--basic_font-color);
+  }
+}
+
+@include media("<phone") {
+  .header {
+    padding: 1rem 1rem 0 1rem;
+    &__title {
+      font-size: var(--mobile__header__title_font-size);
+    }
+    &__description {
+      font-size: var(--mobile__header__description_font-size);
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@import "variables";
+@import "mixins";
+
+#app {
+  @include flex(center, center, column, null);
+  height: 100vh;
+}

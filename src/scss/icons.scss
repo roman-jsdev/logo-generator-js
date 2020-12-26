@@ -1,0 +1,63 @@
+@import "variables";
+@import "mixins";
+
+.icons-grid {
+  @include flex(center, null, null, wrap);
+  width: 70%;
+
+  &__icon {
+    flex: 0 1 8%;
+    background-color: var(--basic__cards_background-color);
+    border: 1px solid var(--basic__input_border-color);
+    border-radius: 50%;
+    margin: var(--basic_margin-bottom);
+    padding: 20px;
+
+    &__circle {
+      @include flex(center, null, null, null);
+      @include card_hover;
+
+      & img {
+        @include image_full;
+      }
+    }
+
+    &.icon_selected {
+      background-color: var(--basic__cards_background-color_hover);
+      box-shadow: 0 0 1px 1px #656565;
+    }
+  }
+}
+
+@include media("<=1350px") {
+  .icons-grid {
+    width: 100%;
+  }
+}
+
+@include media("<=tablet") {
+  .icons-grid {
+    &__icon {
+      padding: 15px;
+    }
+  }
+}
+
+@include media("<=sm-tablet") {
+  .icons-grid {
+    margin-bottom: var(--mobile__control-panel_height);
+
+    &__icon {
+      flex: 0 1 15%;
+    }
+  }
+}
+
+@include media("<=phone") {
+  .icons-grid {
+    &__icon {
+      flex: 0 1 20%;
+      margin: 15px;
+    }
+  }
+}

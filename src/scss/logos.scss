@@ -1,0 +1,156 @@
+@import "variables";
+@import "mixins";
+
+:root {
+  --logo-card_background-color: #{$logo-card_background-color};
+  --logo-card_box-shadow_hover: #{$logo-card_box-shadow_hover};
+  --logo-card__buttons_border-radius: #{$logo-card__buttons_border-radius};
+  --logo-card__buttons_padding: #{$logo-card__buttons_padding};
+}
+
+.logos-wrapper {
+  @include flex(center, center, null, wrap);
+  width: 100%;
+
+  .logo-card {
+    position: relative;
+    width: 600px;
+    height: 380px;
+    margin: var(--basic_margin-bottom);
+    background-color: var(--logo-card_background-color);
+    transition: var(--basic_transition);
+    user-select: none;
+
+    &__buttons {
+      @include position(absolute, 10, 15px, 15px, null, null);
+      @include flex(center, center, null, null);
+      color: var(--basic_font-color);
+
+      &__save {
+        @include flex(center, center, row-reverse, null);
+        background-color: var(--basic__cards_background-color);
+        padding: var(--logo-card__buttons_padding);
+        border-radius: var(--logo-card__buttons_border-radius);
+        width: 35px;
+        transition: var(--basic_transition);
+
+        & i {
+          @include card_hover;
+        }
+
+        &.save_opened {
+          width: 120px;
+
+          & > div {
+            @include flex(center, center, null, null);
+            opacity: 1;
+          }
+        }
+
+        &__download {
+          display: none;
+          opacity: 0;
+          transition: var(--basic_transition);
+
+          & > div {
+            @include card_hover;
+            margin-right: 10px;
+
+            &:hover {
+              color: var(--secondary_font-color);
+            }
+          }
+        }
+      }
+
+      &__like {
+        @include flex(center, center, null, null);
+        @include card_hover;
+        margin-left: calc(var(--basic_margin-bottom) - 10px);
+        padding: var(--logo-card__buttons_padding);
+        background-color: var(--basic__cards_background-color);
+        border-radius: var(--logo-card__buttons_border-radius);
+
+        &.like_liked {
+          color: var(--basic_color_danger);
+        }
+      }
+    }
+
+    &__content {
+      @include flex(center, center, null, null);
+      height: 100%;
+
+      &__icon {
+        margin: 10px;
+        width: 80px;
+
+        & img {
+          @include image_full;
+        }
+
+        &.icon_bright {
+          filter: brightness(10);
+        }
+
+        &.icon_dark {
+          filter: brightness(0);
+        }
+      }
+
+      &__title {
+        font-size: var(--basic__cards__title_font-size);
+
+        &.title_bright {
+          color: var(--logo__title_bright);
+        }
+
+        &.title_dark {
+          color: var(--logo__title_dark);
+        }
+      }
+
+      &.content_column {
+        flex-direction: column;
+      }
+    }
+
+    &:hover {
+      box-shadow: var(--logo-card_box-shadow_hover);
+    }
+  }
+}
+
+@include media(">phone", "<=1300px") {
+  .logos-wrapper {
+    margin-bottom: var(--control-panel_height);
+  }
+}
+
+@include media("<=phone") {
+  .logos-wrapper {
+    margin-bottom: var(--mobile__control-panel_height);
+    .logo-card {
+      height: 250px;
+    }
+  }
+}
+
+@include media("<=sm-phone") {
+  .logos-wrapper {
+    .logo-card {
+      height: 200px;
+
+      &__content {
+        &__icon {
+          margin: 10px;
+          width: 40px;
+        }
+
+        &__title {
+          font-size: var(--mobile__cards__title_font-size);
+        }
+      }
+    }
+  }
+}
