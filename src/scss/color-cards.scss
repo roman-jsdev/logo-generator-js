@@ -33,3 +33,9 @@
     }
   }
 }
+
+@include media("<=phone") {
+  .color-cards-wrapper .color-card{
+    flex: 0 0 40%;
+  }
+}
