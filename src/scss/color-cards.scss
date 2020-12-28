@@ -17,6 +17,7 @@
 
     &__colors-wrapper {
       margin-bottom: var(--basic_margin-bottom);
+      pointer-events: none;
 
       &__color-element {
         height: 25px;
@@ -26,6 +27,7 @@
     &__description {
       color: var(--secondary_font-color);
       font-size: var(--basic__cards__description_font-size);
+      pointer-events: none;
     }
 
     &:hover {

@@ -25,11 +25,13 @@
       color: var(--basic_font-color);
       font-size: var(--basic__cards__title_font-size);
       margin-bottom: calc(var(--basic_margin-bottom) * 2);
+      pointer-events: none;
     }
 
     &__description {
       color: var(--secondary_font-color);
       font-size: var(--basic__cards__description_font-size);
+      pointer-events: none;
     }
 
     &:hover {
