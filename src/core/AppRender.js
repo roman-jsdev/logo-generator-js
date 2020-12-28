@@ -7,6 +7,7 @@ export class AppRender {
 
   render() {
     this.root.innerHTML = ''
+    this.components = this.options.components
     this.components = this.components.map(Component => {
       const el = document.createElement('div')
       el.setAttribute(Component.dataComponent, '')

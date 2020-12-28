@@ -1,12 +1,12 @@
 import { LogoComponent } from '@core/LogoComponent'
-import { renderInput, renderWelcome } from '@/pages/pages'
+import { renderInput, renderWelcome, renderFonts } from '@/pages/pages'
+import { reRender, validateInput } from '@core/utils'
 export class Buttons extends LogoComponent {
   static dataComponent = 'data-buttons'
   static className = 'main-button-wrapper'
 
   constructor(node, options) {
     super(node, {
-      component: 'buttons',
       events: ['click']
     })
     this.options = options
@@ -14,13 +14,21 @@ export class Buttons extends LogoComponent {
 
   toHTML() {
     return `
-      <button class="main-button">${this.options.buttonTitle}</button>
+      <button class="main-button" data-page="${this.options.buttonPage}">
+        ${this.options.buttonTitle}
+      </button>
     `
   }
 
-  click() {
-    renderWelcome.destroy()
-    renderInput.render()
-    renderInput.init()
+  click(event) {
+    switch (event.target.dataset.page) {
+      case 'renderWelcome':
+        localStorage.clear()
+        reRender(renderWelcome, renderInput)
+        break
+      case 'renderInput':
+        if (validateInput('input')) reRender(renderInput, renderFonts)
+        break
+    }
   }
 }

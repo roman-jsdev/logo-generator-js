@@ -1,4 +1,6 @@
 import { LogoComponent } from '@core/LogoComponent'
+import { reRender, validateInput } from '@core/utils'
+import { renderFonts, renderInput } from '@/pages/pages'
 
 export class LogoName extends LogoComponent {
   static dataComponent = 'data-name'
@@ -6,8 +8,7 @@ export class LogoName extends LogoComponent {
 
   constructor(node, options) {
     super(node, {
-      component: 'logo-name',
-      events: []
+      events: ['keydown']
     })
     this.options = options
   }
@@ -17,7 +18,14 @@ export class LogoName extends LogoComponent {
     <input
       class="logo-name__input"
       placeholder="Your Company's name"
+      data-input
     >
     `
+  }
+
+  keydown(event) {
+    if (event.keyCode === 13) {
+      if (validateInput('input')) reRender(renderInput, renderFonts)
+    }
   }
 }
