@@ -3,17 +3,19 @@
 
 :root {
   --control-panel_height: #{$control-panel_height};
+  --control-panel_basic_font-color: #{$basic_font-color};
 }
 
 .control-panel {
   @include flex(center, center, null, null);
   @include position(fixed, 10, null, 0, 0, 0);
+  border-top: 1px solid var(--basic__input_border-color);
   height: var(--control-panel_height);
   background-color: var(--basic__cards_background-color_hover);
 
   &__text {
     flex: 0 1 50%;
-    color: var(--basic_font-color);
+    color: var(--control-panel_basic_font-color);
     font-size: var(--basic__cards__description_font-size);
   }
 }
@@ -21,7 +23,6 @@
 @include media("<=phone") {
   .control-panel {
     @include flex(space-around, center, column, null);
-    border-top: 1px solid var(--basic__input_border-color);
     height: var(--mobile__control-panel_height);
 
     &__text {

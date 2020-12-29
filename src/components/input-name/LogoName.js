@@ -1,5 +1,5 @@
 import { LogoComponent } from '@core/LogoComponent'
-import { reRender, validateInput } from '@core/utils'
+import { reRender, validateInput, responsiveTitle } from '@core/utils'
 import { renderFonts, renderInput } from '@/pages/pages'
 
 export class LogoName extends LogoComponent {
@@ -25,7 +25,9 @@ export class LogoName extends LogoComponent {
 
   keydown(event) {
     if (event.keyCode === 13) {
-      if (validateInput('input')) reRender(renderInput, renderFonts)
+      if (validateInput('input')) {
+        reRender(renderInput, renderFonts) + responsiveTitle()
+      }
     }
   }
 }

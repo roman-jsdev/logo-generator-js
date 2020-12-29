@@ -1,7 +1,9 @@
 import { LogoComponent } from '@core/LogoComponent'
-import { reRender, storage } from '../../core/utils'
-import { renderColors, renderIcons } from '../../pages/pages'
+import { reRender, storage, responsiveApp } from '@core/utils'
+import { renderColors, renderIcons } from '@/pages/pages'
 import { colorCardsTemplate } from './colorCardsTemplate'
+import { selectPlugin } from '@/plugins/select/exportSelect'
+
 export class ColorCards extends LogoComponent {
   static dataComponent = 'data-colors'
   static className = 'color-cards-wrapper'
@@ -18,7 +20,12 @@ export class ColorCards extends LogoComponent {
   }
 
   click(event) {
-    storage('color', event.target.dataset.color)
-    reRender(renderColors, renderIcons)
+    if (event.target.dataset.color) {
+      storage('color', event.target.dataset.color)
+      reRender(renderColors, renderIcons)
+      selectPlugin()
+      responsiveApp()
+      responsiveApp(9999)
+    }
   }
 }

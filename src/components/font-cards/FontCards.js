@@ -4,6 +4,7 @@ import { storage } from '../../core/utils'
 import { renderColors, renderFonts } from '../../pages/pages'
 import { Header } from '../header/Header'
 import { fontCardsTemplate } from './fontCardsTemplate'
+
 export class FontCards extends LogoComponent {
   static dataComponent = 'data-fonts'
   static className = 'font-cards-wrapper'
@@ -23,14 +24,16 @@ export class FontCards extends LogoComponent {
   }
 
   click(event) {
-    if (Header.descriptionCounter < 6) {
-      Header.descriptionCounter++
-      reRender(renderFonts, renderFonts)
-      FontCards.fonts.push(event.target.dataset.font)
-    } else {
-      FontCards.fonts.push(event.target.dataset.font)
-      storage('fonts', FontCards.fonts)
-      reRender(renderFonts, renderColors)
+    if (event.target.dataset.font) {
+      if (Header.descriptionCounter < 6) {
+        Header.descriptionCounter++
+        reRender(renderFonts, renderFonts)
+        FontCards.fonts.push(event.target.dataset.font)
+      } else {
+        FontCards.fonts.push(event.target.dataset.font)
+        storage('fonts', FontCards.fonts)
+        reRender(renderFonts, renderColors)
+      }
     }
   }
 }
