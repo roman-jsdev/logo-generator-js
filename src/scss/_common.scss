@@ -15,6 +15,9 @@ $logo__title_dark: #000000;
 .input_danger::placeholder {
   color: var(--basic_color_danger);
 }
+.danger {
+  color: var(--basic_color_danger);
+}
 .padding-top_no {
   padding-top: 0 !important;
 }

@@ -1,17 +1,22 @@
 @import "variables";
 @import "mixins";
 
-.logo-name__input {
-  width: 450px;
-  height: 58px;
-  font-size: 18px;
-  padding: 10px;
-  margin-bottom: var(--basic_margin-bottom);
-  border: 1px solid var(--basic__input_border-color);
-  border-radius: var(--basic_border-radius);
+.logo-name {
+  @include flex(center, null, null, null);
+  width: 100%;
 
-  &:focus {
-    outline: none;
+  &__input {
+    width: 450px;
+    height: 58px;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: var(--basic_margin-bottom);
+    border: 1px solid var(--basic__input_border-color);
+    border-radius: var(--basic_border-radius);
+
+    &:focus {
+      outline: none;
+    }
   }
 }
 

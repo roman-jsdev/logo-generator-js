@@ -3,7 +3,10 @@ import { LogoName } from '@/components/input-name/LogoName'
 import { Buttons } from '@/components/buttons/Buttons'
 import { FontCards } from '@/components/font-cards/FontCards'
 import { ColorCards } from '@/components/color-cards/ColorCards'
-import { createNewPage } from '../core/utils'
+import { createNewPage } from '@core/utils'
+import { IconsGrid } from '@/components/icons-grid/IconsGrid'
+import { SelectLib } from '@/components/select/Select'
+import { ControlPanel } from '@/components/control-panel/ControlPanel'
 
 export const renderWelcome = createNewPage(
   [Header, Buttons],
@@ -44,9 +47,23 @@ export const renderColors = createNewPage(
 )
 
 export const renderIcons = createNewPage(
-  [Header],
+  [Header, SelectLib, IconsGrid, ControlPanel],
   {
     headerTitle: 'Choose Icons',
-    headerDescription: `Search & pick your favorite icons`
+    headerDescription: `Search & pick your favorite icons`,
+    selectTitle: true,
+    counterType: 'icons',
+    buttonType: 'generate'
+  }
+)
+
+export const renderLogos = createNewPage(
+  [Header, ControlPanel],
+  {
+    headerTitle: 'Results',
+    headerDescription: `Save, Edit, Download or Share your Logo`,
+    counterType: 'logos',
+    multiButtons: true,
+    buttonType: ['all', 'saved']
   }
 )

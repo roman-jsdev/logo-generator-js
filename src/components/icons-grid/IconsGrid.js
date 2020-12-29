@@ -1,0 +1,36 @@
+import { LogoComponent } from '@core/LogoComponent'
+import { storage, cssVar } from '@core/utils'
+import { iconsGridTemplate } from './iconsGridTemplate'
+
+export class IconsGrid extends LogoComponent {
+  static dataComponent = 'data-icons'
+  static className = 'icons-grid'
+  static iconsList = []
+
+  constructor(node, options) {
+    super(node, {
+      events: ['click']
+    })
+    this.options = options
+  }
+
+  toHTML() {
+    return iconsGridTemplate()
+  }
+
+  click(event) {
+    const target = event.target
+    const icon = target.dataset.icon
+    const icons = IconsGrid.iconsList
+    if (target.hasAttribute('data-icon')) {
+      target.classList.toggle('icon_selected')
+      icons.indexOf(icon) === -1
+        ? icons.push(icon) & storage('icons', icons)
+        : icons.splice(icons.indexOf(icon), 1) & storage('icons', icons)
+      document
+        .querySelector('[data-counter]')
+        .textContent = storage('icons').length
+      cssVar('control-panel_basic_font-color', 'var(--basic_font-color)')
+    }
+  }
+}

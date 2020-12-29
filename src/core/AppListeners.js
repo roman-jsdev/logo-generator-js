@@ -8,7 +8,7 @@ export class AppListeners {
   addListeners() {
     this.events.forEach(event => {
       const fn = event
-      if (!this[fn]) throw new Error(`${fn} is not a function`)
+      if (!this[fn]) throw new Error(`Method ${fn} is not a function`)
       this[fn] = this[fn].bind(this)
       this.node.addEventListener(event, this[fn])
     })
