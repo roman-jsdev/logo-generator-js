@@ -28,6 +28,7 @@
 
       &__save {
         @include flex(center, center, row-reverse, null);
+        @include card_hover;
         background-color: var(--basic__cards_background-color);
         padding: var(--logo-card__buttons_padding);
         border-radius: var(--logo-card__buttons_border-radius);
@@ -35,7 +36,7 @@
         transition: var(--basic_transition);
 
         & i {
-          @include card_hover;
+          pointer-events: none;
         }
 
         &.save_opened {
@@ -70,6 +71,10 @@
         padding: var(--logo-card__buttons_padding);
         background-color: var(--basic__cards_background-color);
         border-radius: var(--logo-card__buttons_border-radius);
+
+        & i {
+          pointer-events: none;
+        }
 
         &.like_liked {
           color: var(--basic_color_danger);

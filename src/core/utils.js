@@ -1,8 +1,8 @@
 import { AppRender } from '@core/AppRender'
 
-export function reRender(prevFn, nextFn) {
+export function reRender(prevFn, nextFn, multiPage) {
   prevFn.destroy()
-  nextFn.render()
+  nextFn.render(multiPage)
   nextFn.init()
 }
 
@@ -56,9 +56,14 @@ export function responsiveTitle() {
   const cssClass = 'basic__cards__title_font-size'
   if (length > 10 && length < 13) {
     cssVar(cssClass, '38px')
-  } else if (length > 13 && length < 18) {
+  } else if (length > 10 && length < 18) {
     cssVar(cssClass, '28px')
   } else if (length > 18) {
     cssVar(cssClass, '20px')
   }
+}
+
+export function random(max, min = 0) {
+  if (!min) max += 1
+  return Math.floor(Math.random() * (max - min)) + min
 }

@@ -7,6 +7,7 @@ import { createNewPage } from '@core/utils'
 import { IconsGrid } from '@/components/icons-grid/IconsGrid'
 import { SelectLib } from '@/components/select/Select'
 import { ControlPanel } from '@/components/control-panel/ControlPanel'
+import { Logos } from '@/components/logos/Logos'
 
 export const renderWelcome = createNewPage(
   [Header, Buttons],
@@ -58,7 +59,7 @@ export const renderIcons = createNewPage(
 )
 
 export const renderLogos = createNewPage(
-  [Header, ControlPanel],
+  [Header, Logos, ControlPanel],
   {
     headerTitle: 'Results',
     headerDescription: `Save, Edit, Download or Share your Logo`,

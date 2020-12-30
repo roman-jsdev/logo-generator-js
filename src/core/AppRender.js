@@ -5,8 +5,8 @@ export class AppRender {
     this.components = options.components || []
   }
 
-  render() {
-    this.root.innerHTML = ''
+  render(multiPage) {
+    if (!multiPage) this.root.innerHTML = ''
     this.components = this.options.components
     this.components = this.components.map(Component => {
       const el = document.createElement('div')
