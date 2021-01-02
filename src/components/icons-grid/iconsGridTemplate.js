@@ -13,7 +13,8 @@ export function iconsGridTemplate() {
           src="./components/icons-grid/icons/${lib}/icon${i}.svg"/>
         </div>
       </div>
-      `)
+      `
+    )
   }
 
   return html.join('')

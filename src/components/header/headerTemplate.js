@@ -14,7 +14,7 @@ export function headerTemplate(context) {
         ? `(${Header.descriptionCounter}/6)`
         : ''
     }
-      ${context.options.customHeader ? storage('title') + '?' : ''}
+      ${context.options.headerCustom ? storage('title') + '?' : ''}
     </div>
     ${context.options.selectTitle
       ? '<div class="select-title">Choose from library</div>'

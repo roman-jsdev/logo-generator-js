@@ -19,16 +19,22 @@ export function controlPanelTemplate(context) {
     `
   }
   const buttonType = context.options.buttonType
-  return `
-    <div class="control-panel__text">
+  const counterTemplate = () => {
+    return `
+  <div class="control-panel__text">
       ${context.options.counterType === 'icons'
       ? `Icons selected: ${counter(storage('icons'))}`
       : `Logos liked: ${counter(storage('logos'))}`
     }
     </div>
+  `
+  }
+  return `
+    ${context.options.storageSaved ? '' : counterTemplate()}
+    
     <div class="main-button-wrapper">
-      ${!context.options.multiButtons
-      ? `${button(buttonType)}`
+      ${!context.options.buttonMultiButtons
+    ? `${button(buttonType)}`
       : `${button(buttonType[0])}`
       + `${button(buttonType[1])}`
     }
