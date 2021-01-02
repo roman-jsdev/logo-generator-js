@@ -67,3 +67,25 @@ export function random(max, min = 0) {
   if (!min) max += 1
   return Math.floor(Math.random() * (max - min)) + min
 }
+
+export function arrayToStorage(array, element, storageKey, notSaveToStorage) {
+  const storage = (key, data) => localStorage.setItem(key, JSON.stringify(data))
+  array.indexOf(element) === -1
+    ? array.push(element)
+    : array.splice(array.indexOf(element), 1)
+  if (!notSaveToStorage) storage(storageKey, array)
+}
+
+export function updateCounter(key) {
+  document
+    .querySelector('[data-counter]')
+    .textContent = JSON.parse(localStorage.getItem(key)).length
+}
+
+export function elementToHTML(array) {
+  const outerHTML = []
+  array.forEach(elm => {
+    if (elm.classList.contains('liked')) outerHTML.push(elm.outerHTML)
+  })
+  return outerHTML
+}

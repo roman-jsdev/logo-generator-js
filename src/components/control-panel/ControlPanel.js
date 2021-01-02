@@ -1,6 +1,5 @@
 import { LogoComponent } from '@core/LogoComponent'
-import { renderIcons, renderLogos } from '@/pages/pages'
-import { cssVar, reRender } from '@core/utils'
+import { controlPanelFunctions } from './controlPanelFunctions'
 import { controlPanelTemplate } from './controlPanelTemplate'
 
 export class ControlPanel extends LogoComponent {
@@ -19,20 +18,6 @@ export class ControlPanel extends LogoComponent {
   }
 
   click(event) {
-    const counter = Number(document.querySelector('[data-counter]').textContent)
-    if (counter !== 0) {
-      switch (event.target.dataset.button) {
-        case 'generate':
-          reRender(renderIcons, renderLogos)
-          break
-        case 'all':
-          console.log('Show All Logos')
-          break
-        case 'saved':
-          console.log('Show saved logos')
-      }
-    } else {
-      cssVar('control-panel_basic_font-color', '#ff0000')
-    }
+    controlPanelFunctions(event)
   }
 }

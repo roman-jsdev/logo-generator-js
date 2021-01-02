@@ -43,7 +43,7 @@ export const renderColors = createNewPage(
   {
     headerTitle: 'Pick your Favorite Color',
     headerDescription: 'What Color works best for ',
-    customHeader: true
+    headerCustom: true
   }
 )
 
@@ -64,7 +64,18 @@ export const renderLogos = createNewPage(
     headerTitle: 'Results',
     headerDescription: `Save, Edit, Download or Share your Logo`,
     counterType: 'logos',
-    multiButtons: true,
+    buttonMultiButtons: true,
     buttonType: ['all', 'saved']
+  }
+)
+
+export const renderLiked = createNewPage(
+  [Header, Logos, ControlPanel],
+  {
+    headerTitle: 'Saved Logos',
+    headerDescription: `Edit, Download or Share your Logo`,
+    counterType: 'logos',
+    buttonType: 'new',
+    storageSaved: true
   }
 )

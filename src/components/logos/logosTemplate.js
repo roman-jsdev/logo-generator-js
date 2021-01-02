@@ -3,12 +3,15 @@ import { generateColors, getContrast } from './colorGenerator'
 
 export function logosTemplate() {
   const html = []
+
   const icons = storage('icons')
   const fonts = storage('fonts')
   const color = storage('color')
+
   const randomProps = prop => {
     return prop[random(prop.length - 1)]
   }
+
   for (let i = 1; i < 69; i++) {
     const icon = randomProps(icons)
     const font = randomProps(fonts)
@@ -20,6 +23,7 @@ export function logosTemplate() {
     html.push(`
     <div
       class="logo-card"
+      data-card
       data-font="${font}"
       data-color="${color}"
       data-icon="${icon}"
@@ -27,7 +31,10 @@ export function logosTemplate() {
     <div class="logo-card__buttons">
       <div class="logo-card__buttons__save" data-save>
         <i class="fa fa-download"></i>
-        <div class="logo-card__buttons__save__download">
+        <div
+          class="logo-card__buttons__save__download"
+          style="display: none"
+        >
           <div data-download="PNG">PNG</div>
           <div data-download="JPG">JPG</div>
         </div>

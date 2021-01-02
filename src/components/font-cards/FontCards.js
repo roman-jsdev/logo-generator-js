@@ -1,8 +1,7 @@
 import { LogoComponent } from '@core/LogoComponent'
-import { reRender } from '@core/utils'
-import { storage } from '../../core/utils'
-import { renderColors, renderFonts } from '../../pages/pages'
-import { Header } from '../header/Header'
+import { reRender, storage } from '@core/utils'
+import { renderColors, renderFonts } from '@/pages/pages'
+import { Header } from '@/components/header/Header'
 import { fontCardsTemplate } from './fontCardsTemplate'
 
 export class FontCards extends LogoComponent {

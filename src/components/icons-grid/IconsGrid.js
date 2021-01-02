@@ -1,5 +1,5 @@
 import { LogoComponent } from '@core/LogoComponent'
-import { storage, cssVar } from '@core/utils'
+import { cssVar, arrayToStorage, updateCounter } from '@core/utils'
 import { iconsGridTemplate } from './iconsGridTemplate'
 
 export class IconsGrid extends LogoComponent {
@@ -22,14 +22,11 @@ export class IconsGrid extends LogoComponent {
     const target = event.target
     const icon = target.dataset.icon
     const icons = IconsGrid.iconsList
+
     if (target.hasAttribute('data-icon')) {
       target.classList.toggle('icon_selected')
-      icons.indexOf(icon) === -1
-        ? icons.push(icon) & storage('icons', icons)
-        : icons.splice(icons.indexOf(icon), 1) & storage('icons', icons)
-      document
-        .querySelector('[data-counter]')
-        .textContent = storage('icons').length
+      arrayToStorage(icons, icon, 'icons')
+      updateCounter('icons')
       cssVar('control-panel_basic_font-color', 'var(--basic_font-color)')
     }
   }
