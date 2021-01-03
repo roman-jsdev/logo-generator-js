@@ -1,0 +1,53 @@
+@mixin anim-ease-in-basic($duration) {
+  animation: fade-from-bottom $duration ease;
+
+  @keyframes fade-from-bottom {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin anim-ease-in-cards($duration) {
+  animation: fade-from-bottom-cards $duration ease;
+
+  @keyframes fade-from-bottom-cards {
+    0% {
+      transform: translateY(15px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+@for $i from 1 through 3 {
+  .font-card:nth-child(#{$i}) {
+    @include anim-ease-in-cards(0.2s*$i)
+  }
+}
+
+@for $i from 1 through 12 {
+  .color-card:nth-child(#{$i}) {
+    @include anim-ease-in-cards(0.1s*$i)
+  }
+}
+
+@for $i from 1 through 40 {
+  .icons-grid__icon:nth-child(#{$i}) {
+    @include anim-ease-in-cards(0.025s*$i)
+  }
+}
+
+@for $i from 1 through 6 {
+  .logo-card:nth-child(#{$i}) {
+    @include anim-ease-in-cards(0.1s*$i)
+  }
+}
+
+

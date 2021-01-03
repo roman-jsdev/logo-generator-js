@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins";
+@import "animations";
 
 :root {
   --header__title_font-size: #{$header__title_font-size};
@@ -15,6 +16,7 @@
   text-align: center;
 
   &__title {
+    @include anim-ease-in-basic(0.3s);
     font-size: var(--header__title_font-size);
     font-weight: var(--header__title_font-weight);
     margin-bottom: var(--basic_margin-bottom);
@@ -22,6 +24,7 @@
   }
 
   &__description {
+    @include anim-ease-in-basic(0.3s);
     font-size: var(--header__description_font-size);
     color: var(--basic_font-color);
   }
