@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins";
+@import "animations";
 
 :root {
   --main-button_color: #{$main-button_color};
@@ -14,6 +15,7 @@
   height: 50px;
 
   .main-button {
+    @include anim-ease-in-basic(0.3s);
     @include card_hover;
     font-size: var(--main-button_font-size);
     color: var(--main-button_color);

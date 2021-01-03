@@ -1,11 +1,13 @@
 @import "variables";
 @import "mixins";
+@import "animations";
 
 .logo-name {
   @include flex(center, null, null, null);
   width: 100%;
 
   &__input {
+    @include anim-ease-in-basic(0.3s);
     width: 450px;
     height: 58px;
     font-size: 18px;

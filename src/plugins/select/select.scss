@@ -1,5 +1,6 @@
 @import "../../scss/variables";
 @import "../../scss/mixins";
+@import "../../scss/animations";
 
 $height: 46px;
 $border: 1px solid var(--basic__input_border-color);
@@ -12,6 +13,7 @@ $title_font-weight: 500;
 }
 
 .select-title {
+  @include anim-ease-in-basic(0.3s);
   font-size: var(--basic__cards__description_font-size);
   color: var(--secondary_font-color);
   margin-top: var(--basic_margin-bottom);
@@ -24,6 +26,7 @@ $title_font-weight: 500;
   margin-bottom: var(--basic_margin-bottom);
 
   .select {
+    @include anim-ease-in-basic(0.3s);
     @include position(relative, 100, null, null, null, null);
     flex: 0 1 450px;
     background-color: var(--basic__cards_background-color);
