@@ -74,7 +74,11 @@ module.exports = {
       patterns: [
         {
           from: path.resolve(__dirname, 'src/favicon.ico'),
-          to: path.resolve(__dirname, 'dist'),
+          to: path.resolve(__dirname, 'dist/src'),
+        },
+        {
+          from: path.resolve(__dirname, 'src/components/icons-grid/icons/'),
+          to: path.resolve(__dirname, 'dist/src/icons'),
         },
       ],
     }),

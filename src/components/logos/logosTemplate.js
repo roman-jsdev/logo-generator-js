@@ -49,7 +49,9 @@ export function logosTemplate() {
     >
       <div
         class="logo-card__content__icon ${contrast('icon')}">
-          <img src="./components/icons-grid/icons/${icon}.svg">
+          <img src="${process.env.NODE_ENV === 'production'
+        ? `./src/icons/`
+        : `./components/icons-grid/icons/`}${icon}.svg">
         </div>
       <div class="logo-card__content__title ${contrast('title')}">
         <div class="font-card__title">${storage('title')}</div>

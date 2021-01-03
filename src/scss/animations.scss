@@ -13,6 +13,9 @@
 
 @mixin anim-ease-in-cards($duration) {
   animation: fade-from-bottom-cards $duration ease;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  transform: translateZ(0) scale(1, 1);
 
   @keyframes fade-from-bottom-cards {
     0% {
@@ -28,26 +31,24 @@
 
 @for $i from 1 through 3 {
   .font-card:nth-child(#{$i}) {
-    @include anim-ease-in-cards(0.2s*$i)
+    @include anim-ease-in-cards(0.2s * $i);
   }
 }
 
 @for $i from 1 through 12 {
   .color-card:nth-child(#{$i}) {
-    @include anim-ease-in-cards(0.1s*$i)
+    @include anim-ease-in-cards(0.1s * $i);
   }
 }
 
 @for $i from 1 through 40 {
   .icons-grid__icon:nth-child(#{$i}) {
-    @include anim-ease-in-cards(0.025s*$i)
+    @include anim-ease-in-cards(0.025s * $i);
   }
 }
 
 @for $i from 1 through 6 {
   .logo-card:nth-child(#{$i}) {
-    @include anim-ease-in-cards(0.1s*$i)
+    @include anim-ease-in-cards(0.1s * $i);
   }
 }
-
-
