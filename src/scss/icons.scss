@@ -22,7 +22,8 @@
       pointer-events: none;
 
       & img {
-        @include image_full;
+        width: 58px;
+        height: 100%;
       }
     }
 

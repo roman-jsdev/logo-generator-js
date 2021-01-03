@@ -5,10 +5,10 @@ import { Select } from './select'
 export function selectPlugin() {
   return new Select('#select', {
     placeholder: 'Please select element',
-    selectedId: storage('selectedLib') || 'Default',
+    selectedId: storage('selectedLib') || 'Line',
     data: [
-      { id: 'Default', value: 'Default Library' },
       { id: 'Line', value: 'Line Icons' },
+      { id: 'Simple', value: 'Simple Icons' },
       { id: 'Fancy', value: 'Fancy Icons' },
       { id: 'Elegant', value: 'Elegant Icons' }
     ],

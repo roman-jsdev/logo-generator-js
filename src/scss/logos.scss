@@ -99,7 +99,7 @@
         }
 
         &.icon_bright {
-          filter: brightness(10);
+          filter: brightness(0) invert(1);
         }
 
         &.icon_dark {
@@ -125,8 +125,9 @@
     }
 
     &:hover {
-      transform: translateY(-5px);
       box-shadow: var(--logo-card_box-shadow_hover);
+      -webkit-font-smoothing: subpixel-antialiased;
+      transform: translateY(-5px);
     }
   }
 }
