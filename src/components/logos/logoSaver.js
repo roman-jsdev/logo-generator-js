@@ -1,11 +1,12 @@
 import domToImage from 'dom-to-image'
 import { saveAs } from 'file-saver'
+import { storage } from '@core/utils'
 
 export function saveAsPNG(node) {
   domToImage
     .toBlob(node)
     .then(function (blob) {
-      saveAs(blob, 'logo.png')
+      saveAs(blob, `${storage('title')} logo.png`)
     })
 }
 
@@ -14,7 +15,7 @@ export function saveAsJPG(node) {
     .toJpeg(node)
     .then(function (dataUrl) {
       const link = document.createElement('a')
-      link.download = 'logo.jpeg'
+      link.download = `${storage('title')} logo.jpeg`
       link.href = dataUrl
       link.click()
     })

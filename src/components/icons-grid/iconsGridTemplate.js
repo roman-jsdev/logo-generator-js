@@ -9,13 +9,12 @@ export function iconsGridTemplate() {
     html.push(`
       <div class="icons-grid__icon" data-icon="${lib}/icon${i}">
         <div class="icons-grid__icon__circle">  
-        <img src="${process.env.NODE_ENV === 'production'
-        ? `./src/icons/`
-        : `./components/icons-grid/icons/`}${lib}/icon${i}.svg">  
+          <img src="${process.env.NODE_ENV === 'production'
+            ? `./src/icons/`
+            : `./components/icons-grid/icons/`}${lib}/icon${i}.svg">  
         </div>
       </div>
-      `
-    )
+    `)
   }
 
   return html.join('')

@@ -1,9 +1,9 @@
+import { createNewPage } from '@core/utils'
 import { Header } from '@/components/header/Header'
 import { LogoName } from '@/components/input-name/LogoName'
 import { Buttons } from '@/components/buttons/Buttons'
 import { FontCards } from '@/components/font-cards/FontCards'
 import { ColorCards } from '@/components/color-cards/ColorCards'
-import { createNewPage } from '@core/utils'
 import { IconsGrid } from '@/components/icons-grid/IconsGrid'
 import { SelectLib } from '@/components/select/Select'
 import { ControlPanel } from '@/components/control-panel/ControlPanel'
@@ -12,7 +12,7 @@ import { Logos } from '@/components/logos/Logos'
 export const renderWelcome = createNewPage(
   [Header, Buttons],
   {
-    headerTitle: 'Your Logo',
+    headerTitle: 'Free Logo Maker',
     headerDescription: 'Edit, Download or Share your Saved Logos',
     buttonTitle: 'Create New Logo',
     buttonPage: 'renderWelcome'
@@ -22,7 +22,7 @@ export const renderWelcome = createNewPage(
 export const renderInput = createNewPage(
   [Header, LogoName, Buttons],
   {
-    headerTitle: 'Free Logo Maker',
+    headerTitle: 'Your Logo',
     headerDescription: 'Tell us about your business to get started',
     buttonTitle: 'Continue',
     buttonPage: 'renderInput'

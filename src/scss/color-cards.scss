@@ -37,7 +37,7 @@
 }
 
 @include media("<=phone") {
-  .color-cards-wrapper .color-card{
+  .color-cards-wrapper .color-card {
     flex: 0 0 40%;
     height: 210px;
   }

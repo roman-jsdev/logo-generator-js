@@ -21,13 +21,13 @@
     background-color: transparent;
     transition: var(--basic_transition);
     user-select: none;
-    border-radius: var(--basic_border-radius);
-    overflow: hidden;
+    border-radius: calc(var(--basic_border-radius) * 2);
 
     &__buttons {
       @include position(absolute, 10, 15px, 15px, null, null);
       @include flex(center, center, null, null);
       color: var(--basic_font-color);
+      height: 38px;
 
       &__save {
         @include flex(flex-start, center, row-reverse, null);
@@ -35,7 +35,7 @@
         background-color: var(--basic__cards_background-color);
         padding: var(--logo-card__buttons_padding);
         border-radius: var(--logo-card__buttons_border-radius);
-        width: 35px;
+        width: 37px;
         transition: var(--basic_transition);
 
         & i {
@@ -88,6 +88,7 @@
 
     &__content {
       @include flex(center, center, null, null);
+      border-radius: var(--basic_border-radius);
       height: 100%;
 
       &__icon {
@@ -125,9 +126,21 @@
     }
 
     &:hover {
-      box-shadow: var(--logo-card_box-shadow_hover);
       -webkit-font-smoothing: subpixel-antialiased;
       transform: translateY(-5px);
+    }
+
+    &::after {
+      @include position(absolute, null, 0, 0, 0, 0);
+      content: "";
+      transition: var(--basic_transition);
+      opacity: 0;
+      box-shadow: var(--logo-card_box-shadow_hover);
+      border-radius: var(--basic_border-radius);
+    }
+
+    &:hover::after {
+      opacity: 1;
     }
   }
 }
