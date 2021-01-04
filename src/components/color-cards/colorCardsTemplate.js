@@ -16,16 +16,18 @@ const colorsObject = {
 export function colorCardsTemplate() {
   const html = []
   const colorElement = `
-  <div class="color-card__colors-wrapper__color-element"></div>
+    <div class="color-card__colors-wrapper__color-element"></div>
   `
-  Object.keys(colorsObject).forEach((color, index) => {
+  Object.keys(colorsObject).forEach(color => {
     html.push(`
-    <div class="color-card" data-color="${color}">
-    <div class="color-card__colors-wrapper">
-      ${colorElement.repeat(4)}
-    </div>
-    <div class="color-card__description">${colorsObject[color]}</div>
-    </div>
+      <div class="color-card" data-color="${color}">
+        <div class="color-card__colors-wrapper">
+          ${colorElement.repeat(4)}
+        </div>
+        <div class="color-card__description">
+          ${colorsObject[color]}
+        </div>
+      </div>
     `)
   })
   return html.join('')

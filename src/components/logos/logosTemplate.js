@@ -28,37 +28,37 @@ export function logosTemplate() {
       data-color="${color}"
       data-icon="${icon}"
     >
-    <div class="logo-card__buttons">
-      <div class="logo-card__buttons__save" data-save>
-        <i class="fa fa-download"></i>
-        <div
-          class="logo-card__buttons__save__download"
-          style="display: none"
-        >
-          <div data-download="PNG">PNG</div>
-          <div data-download="JPG">JPG</div>
+      <div class="logo-card__buttons">
+        <div class="logo-card__buttons__save" data-save>
+          <i class="fa fa-download"></i>
+          <div
+            class="logo-card__buttons__save__download"
+            style="display: none"
+          >
+            <div data-download="PNG">PNG</div>
+            <div data-download="JPG">JPG</div>
+          </div>
+        </div>
+        <div class="logo-card__buttons__like" data-like>
+          <i class="fa fa-heart"></i>
         </div>
       </div>
-      <div class="logo-card__buttons__like" data-like>
-        <i class="fa fa-heart"></i>
-      </div>
-    </div>
-    <div
-      class="logo-card__content ${random(1) ? 'content_column' : ''}"
-      style="background-color:${'#' + randomColor}"
-    >
       <div
-        class="logo-card__content__icon ${contrast('icon')}">
-          <img src="${process.env.NODE_ENV === 'production'
-        ? `./src/icons/`
-        : `./components/icons-grid/icons/`}${icon}.svg">
+        class="logo-card__content ${random(1) ? 'content_column' : ''}"
+        style="background-color:${'#' + randomColor}"
+      >
+        <div
+          class="logo-card__content__icon ${contrast('icon')}">
+            <img src="${process.env.NODE_ENV === 'production'
+              ? `./src/icons/`
+              : `./components/icons-grid/icons/`}${icon}.svg">
+          </div>
+        <div class="logo-card__content__title ${contrast('title')}">
+          <div class="font-card__title">${storage('title')}</div>
         </div>
-      <div class="logo-card__content__title ${contrast('title')}">
-        <div class="font-card__title">${storage('title')}</div>
       </div>
     </div>
-  </div>
-    `)
+  `)
   }
   return html.join('')
 }

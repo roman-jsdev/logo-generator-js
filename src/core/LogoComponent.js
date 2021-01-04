@@ -7,10 +7,10 @@ export class LogoComponent extends AppListeners {
   }
 
   init() {
-    this.addListeners()
+    return this.addListeners()
   }
 
   destroy() {
-    this.removeListeners()
+    return this.removeListeners()
   }
 }

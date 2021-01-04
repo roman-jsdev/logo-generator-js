@@ -9,11 +9,11 @@ export function headerTemplate(context) {
     <div class="header__description">
       ${context.options.headerDescription}
       ${!context.options.headerDescriptionCounter
-      ? ''
-      : Header.descriptionCounter < 7
+        ? ''
+        : Header.descriptionCounter < 7
         ? `(${Header.descriptionCounter}/6)`
         : ''
-    }
+      }
       ${context.options.headerCustom ? storage('title') + '?' : ''}
     </div>
     ${context.options.selectTitle

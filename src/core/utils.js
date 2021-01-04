@@ -1,9 +1,7 @@
 import { AppRender } from '@core/AppRender'
 
 export function reRender(prevFn, nextFn, multiPage) {
-  prevFn.destroy()
-  nextFn.render(multiPage)
-  nextFn.init()
+  return prevFn.destroy() + nextFn.render(multiPage) + nextFn.init()
 }
 
 export function validateInput(node) {
@@ -18,7 +16,7 @@ export function validateInput(node) {
 
 export function storage(key, data = null) {
   if (!data) return JSON.parse(localStorage.getItem(key))
-  localStorage.setItem(key, JSON.stringify(data))
+  return localStorage.setItem(key, JSON.stringify(data))
 }
 
 export function createNewPage(components, options) {
@@ -30,7 +28,7 @@ export function createNewPage(components, options) {
 
 export function addStyles(nodes) {
   if (nodes) {
-    nodes.forEach(node => {
+    return nodes.forEach(node => {
       const selectedNode = document.querySelector(`[data-icon="${node}"]`)
       if (selectedNode !== null) {
         selectedNode.classList.add('icon_selected')
@@ -45,21 +43,38 @@ export function cssVar(name, value) {
   return getComputedStyle(document.documentElement).getPropertyValue(name)
 }
 
+export function selectorChildText(selector, text, child) {
+  const parent = document.querySelector(selector)
+  if (!child) {
+    return parent.firstElementChild.textContent = text
+  } else {
+    return parent.lastElementChild.textContent = text
+  }
+}
+
+export function query(selector) {
+  return document.querySelector(selector)
+}
+
+export function queryAll(selector) {
+  return document.querySelectorAll(selector)
+}
+
 export function responsiveApp(resolution) {
   const appClasses = document.querySelector('#app').classList
-  if (!resolution) appClasses.remove('height_100')
-  if (window.screen.width < resolution) appClasses.add('height_100')
+  if (!resolution) return appClasses.remove('height_100')
+  if (window.screen.width < resolution) return appClasses.add('height_100')
 }
 
 export function responsiveTitle() {
   const length = storage('title').length
   const cssClass = 'basic__cards__title_font-size'
   if (length > 10 && length < 13) {
-    cssVar(cssClass, '38px')
+    return cssVar(cssClass, '38px')
   } else if (length > 10 && length < 18) {
-    cssVar(cssClass, '28px')
+    return cssVar(cssClass, '28px')
   } else if (length > 18) {
-    cssVar(cssClass, '20px')
+    return cssVar(cssClass, '20px')
   }
 }
 
@@ -77,7 +92,7 @@ export function arrayToStorage(array, element, storageKey, notSaveToStorage) {
 }
 
 export function updateCounter(key) {
-  document
+  return document
     .querySelector('[data-counter]')
     .textContent = JSON.parse(localStorage.getItem(key)).length
 }

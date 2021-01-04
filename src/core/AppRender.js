@@ -20,10 +20,10 @@ export class AppRender {
   }
 
   init() {
-    this.components.forEach(component => component.init())
+    return this.components.forEach(component => component.init())
   }
 
   destroy() {
-    this.components.forEach(component => component.destroy())
+    return this.components.forEach(component => component.destroy())
   }
 }

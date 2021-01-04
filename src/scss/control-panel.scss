@@ -1,6 +1,5 @@
 @import "variables";
 @import "mixins";
-@import "animations";
 
 :root {
   --control-panel_height: #{$control-panel_height};
@@ -8,7 +7,6 @@
 }
 
 .control-panel {
-  @include anim-ease-in-basic(0.3s);
   @include flex(center, center, null, null);
   @include position(fixed, 10, null, 0, 0, 0);
   border-top: 1px solid var(--basic__input_border-color);

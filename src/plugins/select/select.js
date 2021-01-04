@@ -16,17 +16,17 @@ const getTemplate = (data = [], placeholder, selectedId) => {
   })
 
   return `
-  <div class="select__backdrop" data-type="backdrop"></div>
-  <div class="select__input" data-type="input">
-    <span data-type="value">${text}</span>
-    <i class="fa fa-chevron-down" data-type="arrow"></i>
-  </div>
-  <div class="select__dropdown">
-    <ul class="select__list">
-      ${items.join('')}
-    </ul>
-  </div>
-`
+    <div class="select__backdrop" data-type="backdrop"></div>
+    <div class="select__input" data-type="input">
+      <span data-type="value">${text}</span>
+      <i class="fa fa-chevron-down" data-type="arrow"></i>
+    </div>
+    <div class="select__dropdown">
+      <ul class="select__list">
+        ${items.join('')}
+      </ul>
+    </div>
+  `
 }
 
 export class Select {
