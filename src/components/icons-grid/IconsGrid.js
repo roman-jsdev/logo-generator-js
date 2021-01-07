@@ -18,7 +18,7 @@ export class IconsGrid extends LogoComponent {
     return iconsGridTemplate()
   }
 
-  click(event) {
+  onClick(event) {
     const target = event.target
     const icon = target.dataset.icon
     const icons = IconsGrid.iconsList

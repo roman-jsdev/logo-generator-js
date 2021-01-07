@@ -22,7 +22,7 @@ export class FontCards extends LogoComponent {
       .join('')
   }
 
-  click(event) {
+  onClick(event) {
     if (event.target.dataset.font) {
       if (Header.descriptionCounter < 6) {
         Header.descriptionCounter++

@@ -17,7 +17,7 @@ export class ControlPanel extends LogoComponent {
     return controlPanelTemplate(this)
   }
 
-  click(event) {
+  onClick(event) {
     controlPanelFunctions(event)
   }
 }

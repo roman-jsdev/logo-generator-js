@@ -26,7 +26,7 @@ export class Buttons extends LogoComponent {
     `
   }
 
-  click(event) {
+  onClick(event) {
     switch (event.target.dataset.page) {
       case 'renderWelcome':
         localStorage.clear()

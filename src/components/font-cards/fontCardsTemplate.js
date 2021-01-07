@@ -43,20 +43,19 @@ const descriptionArray = [
 ]
 
 export function fontCardsTemplate() {
-  const html = []
-  Object.keys(fontsObject).forEach((font, index) => {
+  const html = Object.keys(fontsObject).map((font, index) => {
     let dataFont = `${font}`
     fontsObject[font]
       ? dataFont += ` ${fontsObject[font]}`
       : dataFont
-    html.push(`
+     return `
       <div class="font-card" data-font="${dataFont}">
       <div class="font-card__title">${storage('title')}</div>
         <div class="font-card__description">
           ${descriptionArray[index]}
         </div>
       </div>
-    `)
+    `
   })
   return html
 }

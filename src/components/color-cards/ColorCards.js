@@ -19,7 +19,7 @@ export class ColorCards extends LogoComponent {
     return colorCardsTemplate()
   }
 
-  click(event) {
+  onClick(event) {
     if (event.target.dataset.color) {
       storage('color', event.target.dataset.color)
       reRender(renderColors, renderIcons)
