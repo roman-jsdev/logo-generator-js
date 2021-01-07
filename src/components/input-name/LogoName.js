@@ -23,7 +23,7 @@ export class LogoName extends LogoComponent {
     `
   }
 
-  keydown(event) {
+  onKeydown(event) {
     if (event.keyCode === 13) {
       if (validateInput('input')) {
         reRender(renderInput, renderFonts) + responsiveTitle()

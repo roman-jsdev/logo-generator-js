@@ -21,7 +21,7 @@ export class Logos extends LogoComponent {
       : logosTemplate()
   }
 
-  click(event) {
+  onClick(event) {
     logosFunctions(event)
   }
 }

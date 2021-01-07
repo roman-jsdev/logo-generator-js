@@ -98,9 +98,8 @@ export function updateCounter(key) {
 }
 
 export function elementToHTML(array) {
-  const outerHTML = []
-  array.forEach(elm => {
-    if (elm.classList.contains('liked')) outerHTML.push(elm.outerHTML)
+  const outerHTML = array.map(elm => {
+    if (elm.classList.contains('liked')) return elm.outerHTML
   })
   return outerHTML
 }

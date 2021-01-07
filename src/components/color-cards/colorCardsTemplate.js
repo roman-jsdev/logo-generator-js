@@ -14,12 +14,11 @@ const colorsObject = {
 }
 
 export function colorCardsTemplate() {
-  const html = []
   const colorElement = `
     <div class="color-card__colors-wrapper__color-element"></div>
   `
-  Object.keys(colorsObject).forEach(color => {
-    html.push(`
+  const html = Object.keys(colorsObject).map(color => {
+    return `
       <div class="color-card" data-color="${color}">
         <div class="color-card__colors-wrapper">
           ${colorElement.repeat(4)}
@@ -28,7 +27,7 @@ export function colorCardsTemplate() {
           ${colorsObject[color]}
         </div>
       </div>
-    `)
+    `
   })
   return html.join('')
 }
