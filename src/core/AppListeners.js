@@ -15,7 +15,7 @@ export class AppListeners {
 
   removeListeners() {
     this.events.forEach(event => {
-      const fn = event
+      const fn = 'on' + event.charAt(0).toUpperCase() + event.slice(1)
       this.node.removeEventListener(event, this[fn])
     })
   }
