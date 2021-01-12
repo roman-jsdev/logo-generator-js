@@ -2,8 +2,6 @@ import { storage, random } from '@core/utils'
 import { generateColors, getContrast } from './colorGenerator'
 
 export function logosTemplate() {
-  const html = []
-
   const icons = storage('icons')
   const fonts = storage('fonts')
   const color = storage('color')
@@ -12,15 +10,14 @@ export function logosTemplate() {
     return prop[random(prop.length - 1)]
   }
 
-  for (let i = 1; i < 69; i++) {
+  const html = new Array(62).fill('').map((_) => {
     const icon = randomProps(icons)
     const font = randomProps(fonts)
     const randomColor = generateColors(color, random(11))
     const contrast = prop => {
       return getContrast(randomColor, `${prop}_dark`, `${prop}_bright`)
     }
-
-    html.push(`
+    return (`
     <div
       class="logo-card"
       data-card
@@ -50,8 +47,8 @@ export function logosTemplate() {
         <div
           class="logo-card__content__icon ${contrast('icon')}">
             <img src="${process.env.NODE_ENV === 'production'
-              ? `./src/icons/`
-              : `./components/icons-grid/icons/`}${icon}.svg">
+        ? `./src/icons/`
+        : `./components/icons-grid/icons/`}${icon}.svg">
           </div>
         <div class="logo-card__content__title ${contrast('title')}">
           <div class="font-card__title">${storage('title')}</div>
@@ -59,6 +56,7 @@ export function logosTemplate() {
       </div>
     </div>
   `)
-  }
+  })
+
   return html.join('')
 }
