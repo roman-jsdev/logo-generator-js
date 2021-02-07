@@ -1,0 +1,56 @@
+export const colorsObject = {
+  '#e70d0d': 'Cheerful, Vibrant & Happy',
+  '#cd853f': 'Strength & Reliability',
+  '#c51cf8': 'Peaceful & Calming',
+  '#e5ff00': 'Happy, Sunny & Spontaneous',
+  '#08ce5b': 'Natural, Happy, Natural & Calm',
+  '#ffb6ef': 'Sweetness, Romantic & Innocence',
+  '#40ade0': 'Spiritual, Healing & Protection',
+  '#ff7b00': 'Glamorous, Graceful & Sleek',
+  '#0000cd': 'Friendly, Loyal & Peaceful',
+  '#9400d3': 'Bold, Engaging & Vibrant',
+  '#ff1493': 'Intense, Warm & Romantic',
+  '#ffa07a': 'Somber, Earthy, Solid & Natural'
+}
+
+export const fontsObject = {
+  'Noto Serif': null,
+  'Open Sans': null,
+  'Fondamento': null,
+  'Arvo': 700,
+  'Domine': null,
+  'Alegreya': null,
+  'Source Serif Pro': 300,
+  'Bitter': 500,
+  'Roboto Slab': 900,
+  'Patua One': null,
+  'IBM Plex Mono': 500,
+  'Courgette': null,
+  'Patrick Hand': null,
+  'Crimson Text': null,
+  'Fjalla One': null,
+  'Sacramento': null,
+  'Merienda One': null,
+  'Overpass Mono': 300,
+}
+
+export const descriptionArray = [
+  'Serif Typefaces: Serious, Classical, Traditional & Trustworthy',
+  'Sans-serif Typefaces: Clean, Versatile, Friendly & Neutral',
+  'Calligraphic / Handwritten: Elegant, Friendly, Humble & Playful',
+  'Mature Typefaces: Sophisticated, Serious, Cultured & Elegant',
+  'Modern Typefaces: Clean, Neutral, Humble, Calm & Friendly',
+  'Lively Typefaces: Energetic, Youthful & Cheerful',
+  'Thin Typefaces: Sophisticated, Elegant, Soft & Humble',
+  'Medium Typefaces: Neutral, Friendly & Trustworthy',
+  'Bold Typefaces: Confident, Energetic, Immediate & Solid',
+  'Playful Typefaces: Energetic, Friendly, Youthful & Happy',
+  'Playful / Elegant Typefaces: Accessible, Neutral & Friendly',
+  'Elegant Typefaces: Sophisticated, Mature, Subtle & Elegant',
+  'Organic Typefaces: Somber, Creative & Natural',
+  'Geometric / Organic Typefaces: Accessible, Neutral & Friendly',
+  'Geometric Typefaces: Simple, Straightforward & Blunt',
+  'Unconventional Typefaces: Spontaneous, Vibrant & Creative',
+  'Funky Typefaces: Energetic, Friendly & Positive',
+  'Plain Typefaces: Neutral, Polished, Trustworthy, Sleek & Refined'
+]

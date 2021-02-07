@@ -1,6 +1,7 @@
 import { LogoComponent } from '@core/LogoComponent'
 import { reRender, validateInput, responsiveTitle } from '@core/utils'
 import { renderFonts, renderInput } from '@/pages/pages'
+import { responsiveApp } from '../../core/utils'
 
 export class LogoName extends LogoComponent {
   static dataComponent = 'data-name'
@@ -13,20 +14,20 @@ export class LogoName extends LogoComponent {
     this.options = options
   }
 
-  toHTML() {
-    return `
-    <input
-      class="logo-name__input"
-      placeholder="Your Company's name"
-      data-input
-    >
-    `
-  }
+  toHTML = () => (`
+  <input
+    class="logo-name__input"
+    placeholder="Your Company's name"
+    data-input
+  >
+  `)
 
-  onKeydown(event) {
-    if (event.keyCode === 13) {
+  onKeydown = ({ keyCode }) => {
+    if (keyCode === 13) {
       if (validateInput('input')) {
-        reRender(renderInput, renderFonts) + responsiveTitle()
+        reRender(renderInput, renderFonts)
+        responsiveApp(992)
+        responsiveTitle()
       }
     }
   }

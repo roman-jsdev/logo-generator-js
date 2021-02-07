@@ -156,6 +156,11 @@
     margin-bottom: var(--mobile__control-panel_height);
     .logo-card {
       height: 250px;
+      margin: 10px;
+      width: 100%;
+      width: -moz-available;
+      width: -webkit-fill-available;
+      width: fill-available;
     }
   }
 }

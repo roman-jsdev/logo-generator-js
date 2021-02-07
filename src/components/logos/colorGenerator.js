@@ -1,6 +1,6 @@
 import ColorScheme from 'color-scheme'
 
-export function generateColors(hue, index) {
+export const generateColors = (hue, index) => {
   let r = 0
   let g = 0
   let b = 0
@@ -47,7 +47,7 @@ export function generateColors(hue, index) {
   return colors[index]
 }
 
-export function getContrast(hexColor, styleDark, styleBright) {
+export const getContrast = (hexColor, styleDark, styleBright) => {
   const r = parseInt(hexColor.substr(0, 2), 16)
   const g = parseInt(hexColor.substr(2, 2), 16)
   const b = parseInt(hexColor.substr(4, 2), 16)

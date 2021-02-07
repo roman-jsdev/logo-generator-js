@@ -13,36 +13,38 @@ import {
   selectorChildText
 } from '@core/utils'
 
-export function controlPanelFunctions(event) {
-  if (event.target.dataset.button === 'new') {
+export const controlPanelFunctions = ({ target: { dataset: { button } } }) => {
+  if (button === 'new') {
     reRender(renderLiked, renderWelcome)
     responsiveApp()
   } else {
     const counter = query('[data-counter]')
 
-    if (counter !== null) {
+    if (counter) {
       const counterNumber = Number(counter.textContent)
       const logoCard = queryAll('[data-card]')
       const likedLogos = queryAll('.liked').length
 
-      if (event.target.dataset.button === 'all') {
+      if (button === 'all') {
         logoCard.forEach(card => card.removeAttribute('style'))
         selectorChildText('[data-header]', 'Results')
       }
 
-      if (counterNumber !== 0) {
-        switch (event.target.dataset.button) {
+      if (counterNumber) {
+        switch (button) {
           case 'generate':
             reRender(renderIcons, renderLogos)
             break
           case 'saved':
             logoCard
-              .forEach(card => {
-                if (!card.classList.contains('liked') & likedLogos !== 0) {
-                  card.style.display = 'none'
+              .forEach(({ classList, style }) => {
+                if (!classList.contains('liked') && likedLogos) {
+                  style.display = 'none'
                 }
               })
             selectorChildText('[data-header]', 'Saved Logos')
+            break
+          default:
             break
         }
       } else {

@@ -15,13 +15,11 @@ export class ColorCards extends LogoComponent {
     this.options = options
   }
 
-  toHTML() {
-    return colorCardsTemplate()
-  }
+  toHTML = () => colorCardsTemplate()
 
-  onClick(event) {
-    if (event.target.dataset.color) {
-      storage('color', event.target.dataset.color)
+  onClick = ({ target: { dataset: { color } } }) => {
+    if (color) {
+      storage('color', color)
       reRender(renderColors, renderIcons)
       selectPlugin()
       responsiveApp()

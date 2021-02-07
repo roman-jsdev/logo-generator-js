@@ -5,7 +5,7 @@ export class AppListeners {
     this.events = events
   }
 
-  addListeners() {
+  addListeners = () => {
     this.events.forEach(event => {
       const fn = 'on' + event.charAt(0).toUpperCase() + event.slice(1)
       if (!this[fn]) throw new Error(`Method ${fn} is not a function`)
@@ -13,7 +13,7 @@ export class AppListeners {
     })
   }
 
-  removeListeners() {
+  removeListeners = () => {
     this.events.forEach(event => {
       const fn = 'on' + event.charAt(0).toUpperCase() + event.slice(1)
       this.node.removeEventListener(event, this[fn])

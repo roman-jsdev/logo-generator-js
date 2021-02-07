@@ -16,20 +16,19 @@ export class FontCards extends LogoComponent {
     this.options = options
   }
 
-  toHTML() {
-    return fontCardsTemplate()
-      .slice((Header.descriptionCounter - 1) * 3, Header.descriptionCounter * 3)
-      .join('')
-  }
+  toHTML = () => (fontCardsTemplate()
+    .slice((Header.descriptionCounter - 1) * 3, Header.descriptionCounter * 3)
+    .join('')
+  )
 
-  onClick(event) {
-    if (event.target.dataset.font) {
+  onClick = ({ target: { dataset: { font } } }) => {
+    if (font) {
       if (Header.descriptionCounter < 6) {
         Header.descriptionCounter++
         reRender(renderFonts, renderFonts)
-        FontCards.fonts.push(event.target.dataset.font)
+        FontCards.fonts.push(font)
       } else {
-        FontCards.fonts.push(event.target.dataset.font)
+        FontCards.fonts.push(font)
         storage('fonts', FontCards.fonts)
         reRender(renderFonts, renderColors)
       }

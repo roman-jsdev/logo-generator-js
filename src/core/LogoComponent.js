@@ -6,11 +6,7 @@ export class LogoComponent extends AppListeners {
     this.component = options.component || {}
   }
 
-  init() {
-    return this.addListeners()
-  }
+  init = () => this.addListeners()
 
-  destroy() {
-    return this.removeListeners()
-  }
+  destroy = () => this.removeListeners()
 }

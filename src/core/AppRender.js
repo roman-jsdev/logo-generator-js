@@ -5,7 +5,7 @@ export class AppRender {
     this.components = options.components || []
   }
 
-  render(multiPage) {
+  render = (multiPage) => {
     if (!multiPage) this.root.innerHTML = ''
     this.components = this.options.components
     this.components = this.components.map(Component => {
@@ -19,11 +19,7 @@ export class AppRender {
     })
   }
 
-  init() {
-    return this.components.forEach(component => component.init())
-  }
+  init = () => this.components.forEach(component => component.init())
 
-  destroy() {
-    return this.components.forEach(component => component.destroy())
-  }
+  destroy = () => this.components.forEach(component => component.destroy())
 }
