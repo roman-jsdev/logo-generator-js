@@ -13,7 +13,5 @@ export class Header extends LogoComponent {
     this.options = options
   }
 
-  toHTML() {
-    return headerTemplate(this)
-  }
+  toHTML = () => headerTemplate(this)
 }

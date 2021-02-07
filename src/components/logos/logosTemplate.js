@@ -1,22 +1,20 @@
 import { storage, random } from '@core/utils'
 import { generateColors, getContrast } from './colorGenerator'
 
-export function logosTemplate() {
+export const logosTemplate = () => {
   const icons = storage('icons')
   const fonts = storage('fonts')
   const color = storage('color')
 
-  const randomProps = prop => {
-    return prop[random(prop.length - 1)]
-  }
+  const randomProps = prop => prop[random(prop.length - 1)]
 
-  const html = new Array(62).fill('').map((_) => {
+  return new Array(62).fill('').map((_) => {
     const icon = randomProps(icons)
     const font = randomProps(fonts)
     const randomColor = generateColors(color, random(11))
-    const contrast = prop => {
-      return getContrast(randomColor, `${prop}_dark`, `${prop}_bright`)
-    }
+    const contrast = prop => (
+      getContrast(randomColor, `${prop}_dark`, `${prop}_bright`)
+    )
     return (`
     <div
       class="logo-card"
@@ -56,7 +54,5 @@ export function logosTemplate() {
       </div>
     </div>
   `)
-  })
-
-  return html.join('')
+  }).join('')
 }

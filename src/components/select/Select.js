@@ -11,9 +11,7 @@ export class SelectLib extends LogoComponent {
     this.options = options
   }
 
-  toHTML() {
-    return `
-      <div id="select"></div>
-    `
-  }
+  toHTML = () => (`
+    <div id="select"></div>
+  `)
 }

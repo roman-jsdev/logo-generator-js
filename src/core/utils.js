@@ -1,89 +1,86 @@
 import { AppRender } from '@core/AppRender'
 
-export function reRender(prevFn, nextFn, multiPage) {
-  return prevFn.destroy() + nextFn.render(multiPage) + nextFn.init()
+export const reRender = (prevFn, nextFn, multiPage) => {
+  prevFn.destroy()
+  nextFn.render(multiPage)
+  nextFn.init()
 }
 
-export function validateInput(node) {
-  const input = document.querySelector(`[data-${node}]`)
-  if (input.value.length === 0) {
-    input.classList.add('input_danger')
-  } else if (input.value.length > 0) {
-    storage('title', input.value)
-    return true
-  }
+export const validateInput = (node) => {
+  const { classList, value } = document.querySelector(`[data-${node}]`)
+  value.length
+    ? storage('title', value)
+    : classList.add('input_danger')
+  if (storage('title')) return true
 }
 
-export function storage(key, data = null) {
+export const storage = (key, data = null) => {
   if (!data) return JSON.parse(localStorage.getItem(key))
-  return localStorage.setItem(key, JSON.stringify(data))
+  localStorage.setItem(key, JSON.stringify(data))
 }
 
-export function createNewPage(components, options) {
-  return new AppRender('#app', {
-    components: components,
-    props: options
-  })
-}
+export const createNewPage = (components, options) => new AppRender('#app', {
+  components: components,
+  props: options
+})
 
-export function addStyles(nodes) {
+export const addStyles = (nodes) => {
   if (nodes) {
-    return nodes.forEach(node => {
+    nodes.forEach(node => {
       const selectedNode = document.querySelector(`[data-icon="${node}"]`)
-      if (selectedNode !== null) {
+      if (selectedNode) {
         selectedNode.classList.add('icon_selected')
       }
     })
   }
 }
 
-export function cssVar(name, value) {
+export const cssVar = (name, value) => {
   if (name.substr(0, 2) !== '--') name = '--' + name
   if (value) document.documentElement.style.setProperty(name, value)
   return getComputedStyle(document.documentElement).getPropertyValue(name)
 }
 
-export function selectorChildText(selector, text, child) {
+export const selectorChildText = (selector, text, child) => {
   const parent = document.querySelector(selector)
-  if (!child) {
-    return parent.firstElementChild.textContent = text
-  } else {
-    return parent.lastElementChild.textContent = text
-  }
+  !child
+    ? parent.firstElementChild.textContent = text
+    : parent.lastElementChild.textContent = text
 }
 
-export function query(selector) {
-  return document.querySelector(selector)
-}
+export const query = (selector) => document.querySelector(selector)
 
-export function queryAll(selector) {
-  return document.querySelectorAll(selector)
-}
+export const queryAll = (selector) => document.querySelectorAll(selector)
 
-export function responsiveApp(resolution) {
+export const responsiveApp = (resolution) => {
   const appClasses = document.querySelector('#app').classList
-  if (!resolution) return appClasses.remove('height_100')
-  if (window.screen.width < resolution) return appClasses.add('height_100')
+  if (!resolution) appClasses.remove('height_100')
+  if (window.screen.width < resolution) appClasses.add('height_100')
 }
 
-export function responsiveTitle() {
-  const length = storage('title').length
+export const responsiveTitle = () => {
+  const { length } = storage('title')
   const cssClass = 'basic__cards__title_font-size'
   if (length > 10 && length < 13) {
-    return cssVar(cssClass, '38px')
-  } else if (length > 10 && length < 18) {
-    return cssVar(cssClass, '28px')
+    cssVar(cssClass, '38px')
+  } else if (length > 13 && length < 18) {
+    cssVar(cssClass, '28px')
   } else if (length > 18) {
-    return cssVar(cssClass, '20px')
+    cssVar(cssClass, '20px')
   }
 }
 
-export function random(max, min = 0) {
+export const random = (max, min = 0) => {
   if (!min) max += 1
   return Math.floor(Math.random() * (max - min)) + min
 }
 
-export function arrayToStorage(array, element, storageKey, notSaveToStorage) {
+export const arrayToStorage = (
+  array,
+  element,
+  storageKey,
+  notSaveToStorage
+) => {
   const storage = (key, data) => localStorage.setItem(key, JSON.stringify(data))
   array.indexOf(element) === -1
     ? array.push(element)
@@ -91,15 +88,11 @@ export function arrayToStorage(array, element, storageKey, notSaveToStorage) {
   if (!notSaveToStorage) storage(storageKey, array)
 }
 
-export function updateCounter(key) {
-  return document
-    .querySelector('[data-counter]')
-    .textContent = JSON.parse(localStorage.getItem(key)).length
-}
+export const updateCounter = (key) => document
+  .querySelector('[data-counter]')
+  .textContent = JSON.parse(localStorage.getItem(key)).length
 
-export function elementToHTML(array) {
-  const outerHTML = array.map(elm => {
-    if (elm.classList.contains('liked')) return elm.outerHTML
+export const elementToHTML = (array) => array
+  .map(({ classList, outerHTML }) => {
+    if (classList.contains('liked')) return outerHTML
   })
-  return outerHTML
-}

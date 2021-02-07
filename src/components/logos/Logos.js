@@ -15,13 +15,11 @@ export class Logos extends LogoComponent {
     this.options = options
   }
 
-  toHTML() {
-    return this.options.storageSaved
-      ? storage('likedLogos').join('')
-      : logosTemplate()
-  }
+  toHTML = () => this.options.storageSaved
+    ? storage('likedLogos').join('')
+    : logosTemplate()
 
-  onClick(event) {
+  onClick = (event) => {
     logosFunctions(event)
   }
 }

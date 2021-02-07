@@ -18,16 +18,15 @@ export class Buttons extends LogoComponent {
     this.options = options
   }
 
-  toHTML() {
-    return `
+  toHTML = () => (`
       <button class="main-button" data-page="${this.options.buttonPage}">
         ${this.options.buttonTitle}
       </button>
-    `
-  }
+    `)
 
-  onClick(event) {
-    switch (event.target.dataset.page) {
+
+  onClick = ({ target: { dataset: { page } } }) => {
+    switch (page) {
       case 'renderWelcome':
         localStorage.clear()
         reRender(renderWelcome, renderInput)
@@ -38,6 +37,8 @@ export class Buttons extends LogoComponent {
           responsiveApp(992)
           responsiveTitle()
         }
+        break
+      default:
         break
     }
   }
