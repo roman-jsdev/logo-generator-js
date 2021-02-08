@@ -31,21 +31,16 @@ export const controlPanelFunctions = ({ target: { dataset: { button } } }) => {
       }
 
       if (counterNumber) {
-        switch (button) {
-          case 'generate':
-            reRender(renderIcons, renderLogos)
-            break
-          case 'saved':
-            logoCard
-              .forEach(({ classList, style }) => {
-                if (!classList.contains('liked') && likedLogos) {
-                  style.display = 'none'
-                }
-              })
-            selectorChildText('[data-header]', 'Saved Logos')
-            break
-          default:
-            break
+        if (button === 'generate') {
+          reRender(renderIcons, renderLogos)
+        } else if (button === 'saved') {
+          logoCard
+          .forEach(({ classList, style }) => {
+            if (!classList.contains('liked') && likedLogos) {
+              style.display = 'none'
+            }
+          })
+          selectorChildText('[data-header]', 'Saved Logos')
         }
       } else {
         cssVar('control-panel_basic_font-color', '#ff0000')

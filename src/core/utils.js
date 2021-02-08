@@ -67,6 +67,8 @@ export const responsiveTitle = () => {
     cssVar(cssClass, '28px')
   } else if (length > 18) {
     cssVar(cssClass, '20px')
+  } else {
+    cssVar(cssClass, '48px')
   }
 }
 

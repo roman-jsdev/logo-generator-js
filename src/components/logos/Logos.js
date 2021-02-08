@@ -19,7 +19,5 @@ export class Logos extends LogoComponent {
     ? storage('likedLogos').join('')
     : logosTemplate()
 
-  onClick = (event) => {
-    logosFunctions(event)
-  }
+  onClick = logosFunctions
 }

@@ -33,15 +33,10 @@ export const logosFunctions = ({ target }) => {
 
   if (parentNode) {
     const card = parentNode.lastElementChild
-    switch (target.dataset.download) {
-      case 'PNG':
-        saveAsPNG(card)
-        break
-      case 'JPG':
-        saveAsJPG(card)
-        break
-      default:
-        return
+    if (target.dataset.download === 'PNG') {
+      saveAsPNG(card)
+    } else if (target.dataset.download === 'JPG') {
+      saveAsJPG(card)
     }
   }
 }

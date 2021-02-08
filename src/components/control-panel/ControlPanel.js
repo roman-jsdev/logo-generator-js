@@ -15,7 +15,5 @@ export class ControlPanel extends LogoComponent {
 
   toHTML = () => controlPanelTemplate(this)
 
-  onClick = (event) => {
-    controlPanelFunctions(event)
-  }
+  onClick = controlPanelFunctions
 }

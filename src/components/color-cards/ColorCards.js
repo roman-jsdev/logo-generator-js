@@ -15,7 +15,7 @@ export class ColorCards extends LogoComponent {
     this.options = options
   }
 
-  toHTML = () => colorCardsTemplate()
+  toHTML = colorCardsTemplate
 
   onClick = ({ target: { dataset: { color } } }) => {
     if (color) {
