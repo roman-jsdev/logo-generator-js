@@ -1,4 +1,4 @@
-import '@/scss/index.scss'
-import { appInit } from '@core/appInit'
+import "@/scss/index.scss";
+import { appInit } from "@core/appInit";
 
-appInit()
+appInit();

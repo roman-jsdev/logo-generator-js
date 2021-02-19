@@ -1,17 +1,17 @@
-import { LogoComponent } from '@core/LogoComponent'
+import { LogoComponent } from "@core/LogoComponent";
 
 export class SelectLib extends LogoComponent {
-  static dataComponent = 'data-select'
-  static className = 'select-wrapper'
+  static dataComponent = "data-select";
+  static className = "select-wrapper";
 
   constructor(node, options) {
     super(node, {
-      events: []
-    })
-    this.options = options
+      events: [],
+    });
+    this.options = options;
   }
 
-  toHTML = () => (`
+  toHTML = () => `
     <div id="select"></div>
-  `)
+  `;
 }

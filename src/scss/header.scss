@@ -34,10 +34,10 @@
   .header {
     padding: 1rem 1rem 0 1rem;
     &__title {
-      font-size: var(--mobile__header__title_font-size);
+      font-size: var(--mobile__header_title_font-size);
     }
     &__description {
-      font-size: var(--mobile__header__description_font-size);
+      font-size: var(--mobile__header_description_font-size);
     }
   }
 }

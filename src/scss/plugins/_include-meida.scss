@@ -1,20 +1,6 @@
 @charset "UTF-8";
 
-//     _            _           _                           _ _
-//    (_)          | |         | |                         | (_)
-//     _ _ __   ___| |_   _  __| | ___   _ __ ___   ___  __| |_  __ _
-//    | | '_ \ / __| | | | |/ _` |/ _ \ | '_ ` _ \ / _ \/ _` | |/ _` |
-//    | | | | | (__| | |_| | (_| |  __/ | | | | | |  __/ (_| | | (_| |
-//    |_|_| |_|\___|_|\__,_|\__,_|\___| |_| |_| |_|\___|\__,_|_|\__,_|
-//
-//      Simple, elegant and maintainable media queries in Sass
-//                        v1.4.9
-//
-//        https://eduardoboucas.github.io/include-media
-//
-//         Authors: Eduardo Boucas (@eduardoboucas)
-//                  Hugo Giraudel (@hugogiraudel)
-//
+// https://eduardoboucas.github.io/include-media
 
 $breakpoints: (
   'phone': 320px,
@@ -94,11 +80,6 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
     }
   }
 
-  // It is not possible to include a mixin inside a function, so we have to
-  // rely on the `im-log(..)` function rather than the `log(..)` mixin. Because
-  // functions cannot be called anywhere in Sass, we need to hack the call in
-  // a dummy variable, such as `$_`. If anybody ever raise a scoping issue with
-  // Sass 3.3, change this line in `@if im-log(..) {}` instead.
   $_: im-log('No operator found in `#{$expression}`.');
 }
 
@@ -131,11 +112,6 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
   $interval: map-get($unit-intervals, unit($value));
 
   @if not $interval {
-    // It is not possible to include a mixin inside a function, so we have to
-    // rely on the `im-log(..)` function rather than the `log(..)` mixin. Because
-    // functions cannot be called anywhere in Sass, we need to hack the call in
-    // a dummy variable, such as `$_`. If anybody ever raise a scoping issue with
-    // Sass 3.3, change this line in `@if im-log(..) {}` instead.
     $_: im-log('Unknown unit `#{unit($value)}`.');
   }
 
@@ -149,8 +125,6 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 }
 
 @function parse-expression($expression) {
-  // If it is part of $media-expressions, it has no operator
-  // then there is no need to go any further, just return the value
   @if map-has-key($media-expressions, $expression) {
     @return map-get($media-expressions, $expression);
   }
@@ -190,7 +164,6 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
   $minus: ($first-character == '-');
   $numbers: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
 
-  // Remove +/- sign if present at first character
   @if ($first-character == '+' or $first-character == '-') {
     $value: str-slice($value, 2);
   }
@@ -226,17 +199,14 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
 }
 
 @mixin media-context($tweakpoints: (), $tweak-media-expressions: ()) {
-  // Save global configuration
   $global-breakpoints: $breakpoints;
   $global-media-expressions: $media-expressions;
 
-  // Update global configuration
   $breakpoints: map-merge($breakpoints, $tweakpoints) !global;
   $media-expressions: map-merge($media-expressions, $tweak-media-expressions) !global;
 
   @content;
 
-  // Restore global configuration
   $breakpoints: $global-breakpoints !global;
   $media-expressions: $global-media-expressions !global;
 }
@@ -247,7 +217,6 @@ $im-no-media-expressions: ('screen', 'portrait', 'landscape') !default;
     @content;
   } @else if ($im-media-support and length($conditions) > 0) {
     @media #{unquote(parse-expression(nth($conditions, 1)))} {
-      // Recursive call
       @include media(slice($conditions, 2)...) {
         @content;
       }
