@@ -15,11 +15,11 @@
 @import "../plugins/select/select";
 
 :root {
-  --mobile__cards__description_font-size: #{$mobile__cards__description_font-size};
+  --mobile__cards_description_font-size: #{$mobile__cards_description_font-size};
   --mobile__control-panel_height: #{$mobile__control-panel_height};
-  --mobile__cards__title_font-size: #{$mobile__cards__title_font-size};
-  --mobile__header__title_font-size: #{$mobile__header__title_font-size};
-  --mobile__header__description_font-size: #{$mobile__header__description_font-size};
+  --mobile__cards_title_font-size: #{$mobile__cards_title_font-size};
+  --mobile__header_title_font-size: #{$mobile__header_title_font-size};
+  --mobile__header_description_font-size: #{$mobile__header_description_font-size};
 }
 
 :root {
@@ -35,8 +35,8 @@
   --basic_transition: #{$basic_transition};
   --basic__cards_background-color: #{$basic__cards_background-color};
   --basic__cards_background-color_hover: #{$basic__cards_background-color_hover};
-  --basic__cards__title_font-size: #{$basic__cards__title_font-size};
-  --basic__cards__description_font-size: #{$basic__cards__description_font-size};
+  --basic__cards_title_font-size: #{$basic__cards_title_font-size};
+  --basic__cards_description_font-size: #{$basic__cards_description_font-size};
   --basic__input_border-color: #{$basic__input_border-color};
 }
 

@@ -23,14 +23,14 @@
 
     &__title {
       color: var(--basic_font-color);
-      font-size: var(--basic__cards__title_font-size);
+      font-size: var(--basic__cards_title_font-size);
       margin-bottom: calc(var(--basic_margin-bottom) * 2);
       pointer-events: none;
     }
 
     &__description {
       color: var(--secondary_font-color);
-      font-size: var(--basic__cards__description_font-size);
+      font-size: var(--basic__cards_description_font-size);
       pointer-events: none;
     }
 
@@ -51,7 +51,7 @@
       }
 
       &__description {
-        font-size: var(--mobile__cards__description_font-size);
+        font-size: var(--mobile__cards_description_font-size);
       }
     }
   }
@@ -67,7 +67,7 @@
 
     .font-card {
       &__description {
-        font-size: var(--mobile__cards__description_font-size);
+        font-size: var(--mobile__cards_description_font-size);
       }
     }
   }

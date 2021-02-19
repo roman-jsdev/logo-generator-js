@@ -29,7 +29,7 @@
       color: var(--basic_font-color);
       height: 38px;
 
-      &__save {
+      &_save {
         @include flex(flex-start, center, row-reverse, null);
         @include card_hover;
         background-color: var(--basic__cards_background-color);
@@ -52,7 +52,7 @@
           }
         }
 
-        &__download {
+        &_download {
           display: none;
           opacity: 0;
           transition: none;
@@ -68,7 +68,7 @@
         }
       }
 
-      &__like {
+      &_like {
         @include flex(center, center, null, null);
         @include card_hover;
         margin-left: calc(var(--basic_margin-bottom) - 10px);
@@ -91,7 +91,7 @@
       border-radius: var(--basic_border-radius);
       height: 100%;
 
-      &__icon {
+      &_icon {
         margin: 10px;
         width: 80px;
 
@@ -108,8 +108,8 @@
         }
       }
 
-      &__title {
-        font-size: var(--basic__cards__title_font-size);
+      &_title {
+        font-size: var(--basic__cards_title_font-size);
 
         &.title_bright {
           color: var(--logo__title_bright);
@@ -171,13 +171,13 @@
       height: 200px;
 
       &__content {
-        &__icon {
+        &_icon {
           margin: 10px;
           width: 40px;
         }
 
-        &__title {
-          font-size: var(--mobile__cards__title_font-size);
+        &_title {
+          font-size: var(--mobile__cards_title_font-size);
         }
       }
     }

@@ -16,7 +16,7 @@
 @each $color in $colors {
   @for $i from 1 through 4 {
     [data-color="#{$color}"]
-      .color-card__colors-wrapper__color-element:nth-child(#{$i}) {
+      .color-card__colors-wrapper_color-element:nth-child(#{$i}) {
       background-color: $color;
       opacity: calc(1 - #{$i}/ 7);
     }

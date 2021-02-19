@@ -1,81 +1,63 @@
-import { createNewPage } from '@core/utils'
-import { Header } from '@/components/header/Header'
-import { LogoName } from '@/components/input-name/LogoName'
-import { Buttons } from '@/components/buttons/Buttons'
-import { FontCards } from '@/components/font-cards/FontCards'
-import { ColorCards } from '@/components/color-cards/ColorCards'
-import { IconsGrid } from '@/components/icons-grid/IconsGrid'
-import { SelectLib } from '@/components/select/Select'
-import { ControlPanel } from '@/components/control-panel/ControlPanel'
-import { Logos } from '@/components/logos/Logos'
+import { createNewPage } from "@core/utils";
+import { Header } from "@/components/header/Header";
+import { LogoName } from "@/components/input-name/LogoName";
+import { Buttons } from "@/components/buttons/Buttons";
+import { FontCards } from "@/components/font-cards/FontCards";
+import { ColorCards } from "@/components/color-cards/ColorCards";
+import { IconsGrid } from "@/components/icons-grid/IconsGrid";
+import { SelectLib } from "@/components/select/Select";
+import { ControlPanel } from "@/components/control-panel/ControlPanel";
+import { Logos } from "@/components/logos/Logos";
 
-export const renderWelcome = createNewPage(
-  [Header, Buttons],
-  {
-    headerTitle: 'Free Logo Maker',
-    headerDescription: 'Edit, Download or Share your Saved Logos',
-    buttonTitle: 'Create New Logo',
-    buttonPage: 'renderWelcome'
-  }
-)
+export const renderWelcome = createNewPage([Header, Buttons], {
+  headerTitle: "Free Logo Maker",
+  headerDescription: "Edit, Download or Share your Saved Logos",
+  buttonTitle: "Create New Logo",
+  buttonPage: "renderWelcome",
+});
 
-export const renderInput = createNewPage(
-  [Header, LogoName, Buttons],
-  {
-    headerTitle: 'Your Logo',
-    headerDescription: 'Tell us about your business to get started',
-    buttonTitle: 'Continue',
-    buttonPage: 'renderInput'
-  }
-)
+export const renderInput = createNewPage([Header, LogoName, Buttons], {
+  headerTitle: "Your Logo",
+  headerDescription: "Tell us about your business to get started",
+  buttonTitle: "Continue",
+  buttonPage: "renderInput",
+});
 
-export const renderFonts = createNewPage(
-  [Header, FontCards],
-  {
-    headerTitle: 'Choose a Style',
-    headerDescription: 'Pick your Favorite Font',
-    headerDescriptionCounter: true
-  }
-)
+export const renderFonts = createNewPage([Header, FontCards], {
+  headerTitle: "Choose a Style",
+  headerDescription: "Pick your Favorite Font",
+  headerDescriptionCounter: true,
+});
 
-export const renderColors = createNewPage(
-  [Header, ColorCards],
-  {
-    headerTitle: 'Pick your Favorite Color',
-    headerDescription: 'What Color works best for ',
-    headerCustom: true
-  }
-)
+export const renderColors = createNewPage([Header, ColorCards], {
+  headerTitle: "Pick your Favorite Color",
+  headerDescription: "What Color works best for ",
+  headerCustom: true,
+});
 
 export const renderIcons = createNewPage(
   [Header, SelectLib, IconsGrid, ControlPanel],
   {
-    headerTitle: 'Choose Icons',
+    headerTitle: "Choose Icons",
     headerDescription: `Search & pick your favorite icons`,
     selectTitle: true,
-    counterType: 'icons',
-    buttonType: 'generate'
+    counterType: "icons",
+    buttonType: "generate",
   }
-)
+);
 
-export const renderLogos = createNewPage(
-  [Header, Logos, ControlPanel],
-  {
-    headerTitle: 'Results',
-    headerDescription: `Save, Edit, Download or Share your Logo`,
-    counterType: 'logos',
-    buttonMultiButtons: true,
-    buttonType: ['all', 'saved']
-  }
-)
+export const renderLogos = createNewPage([Header, Logos, ControlPanel], {
+  headerTitle: "Results",
+  headerDescription: `Save, Edit, Download or Share your Logo`,
+  counterType: "logos",
+  buttonMultiButtons: true,
+  buttonType: ["all", "saved"],
+});
 
-export const renderLiked = createNewPage(
-  [Header, Logos, ControlPanel],
-  {
-    headerTitle: 'Saved Logos',
-    headerDescription: `Edit, Download or Share your Logo`,
-    counterType: 'logos',
-    buttonType: 'new',
-    storageSaved: true
-  }
-)
+export const renderLiked = createNewPage([Header, Logos, ControlPanel], {
+  headerTitle: "Saved Logos",
+  headerDescription: `Edit, Download or Share your Logo`,
+  counterType: "logos",
+  buttonType: "new",
+  storageSaved: true,
+});

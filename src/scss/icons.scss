@@ -17,7 +17,7 @@
     @include flex(center, center, null, null);
     @include card_hover;
 
-    &__circle {
+    &_circle {
       @include flex(center, null, null, null);
       pointer-events: none;
 

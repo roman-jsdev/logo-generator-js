@@ -9,12 +9,12 @@ $title_font-weight: 500;
 :root {
   --select_height: #{$height};
   --select_border: #{$border};
-  --select-title_font-weight: #{$title_font-weight}
+  --select-title_font-weight: #{$title_font-weight};
 }
 
 .select-title {
   @include anim-ease-in-basic(0.3s);
-  font-size: var(--basic__cards__description_font-size);
+  font-size: var(--basic__cards_description_font-size);
   color: var(--secondary_font-color);
   margin-top: var(--basic_margin-bottom);
   font-weight: var(--select-title_font-weight);
@@ -33,7 +33,8 @@ $title_font-weight: 500;
     color: var(--basic_font-color);
 
     &.open {
-      .select__dropdown, .select__backdrop {
+      .select__dropdown,
+      .select__backdrop {
         display: block;
       }
 

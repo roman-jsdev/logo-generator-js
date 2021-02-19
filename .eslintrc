@@ -17,7 +17,9 @@
     "indent": "off",
     "comma-dangle": "off",
     "space-before-function-paren": "off",
-    "no-invalid-this": "off"
+    "no-invalid-this": "off",
+    "quotes": "off",
+    "quote-props": "off"
   },
   "plugins": [
     "jest"
